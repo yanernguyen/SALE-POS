@@ -44,7 +44,7 @@ class POSSystem:
 
     def remove_item_from_cart(self):
         # Allows user to remove an item from the cart
-        item_name = input("Enter item name to remove: ")
+        item_name = input("Enter item name to remove:  ")
         self.cart.remove_item(item_name)
         print(f"Removed {item_name} from cart.")
 
