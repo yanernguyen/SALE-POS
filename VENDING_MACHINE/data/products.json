@@ -1,0 +1,106 @@
+[
+    {
+        "id": "SP_0001",
+        "name": "CocaCola",
+        "price": 10000,
+        "stock": 10,
+        "category": "Beverages",
+        "image": "image/cocacola.jpg"
+    },
+    {
+        "id": "SP_0002",
+        "name": "Pepsi",
+        "price": 12000,
+        "stock": 9,
+        "category": "Beverages",
+        "image": "image/pepsi.jpg"
+    },
+    {
+        "id": "SP_0003",
+        "name": "Aquafina",
+        "price": 8000,
+        "stock": 9,
+        "category": "Beverages",
+        "image": "image/aquafina.jpg"
+    },
+    {
+        "id": "SP_0004",
+        "name": "Red Bull",
+        "price": 15000,
+        "stock": 5,
+        "category": "Beverages",
+        "image": "image/redbull.jpg"
+    },
+    {
+        "id": "SP_0005",
+        "name": "Sprite",
+        "price": 11000,
+        "stock": 11,
+        "category": "Beverages",
+        "image": "image/sprite.jpg"
+    },
+    {
+        "id": "SP_0006",
+        "name": "Cafe",
+        "price": 20000,
+        "stock": 8,
+        "category": "Beverages",
+        "image": "image/cafe.jpg"
+    },
+    {
+        "id": "SP_0007",
+        "name": "Burger",
+        "price": 25000,
+        "stock": 10,
+        "category": "Fast Food",
+        "image": "image/burger.jpg"
+    },
+    {
+        "id": "SP_0008",
+        "name": "Fried Chicken",
+        "price": 30000,
+        "stock": 6,
+        "category": "Fast Food",
+        "image": "image/friedchicken.jpg"
+    },
+    {
+        "id": "SP_0009",
+        "name": "Pizza",
+        "price": 50000,
+        "stock": 4,
+        "category": "Fast Food",
+        "image": "image/pizza.jpg"
+    },
+    {
+        "id": "SP_0010",
+        "name": "Chips",
+        "price": 15000,
+        "stock": 20,
+        "category": "Snacks",
+        "image": "image/chips.jpg"
+    },
+    {
+        "id": "SP_0011",
+        "name": "Chocolate",
+        "price": 20000,
+        "stock": 9,
+        "category": "Snacks",
+        "image": "image/chocolate.jpg"
+    },
+    {
+        "id": "SP_0012",
+        "name": "Shampoo",
+        "price": 40000,
+        "stock": 5,
+        "category": "Personal Cares",
+        "image": "image/shampoo.jpg"
+    },
+    {
+        "id": "SP_0013",
+        "name": "Toothpaste",
+        "price": 20000,
+        "stock": 8,
+        "category": "Personal Cares",
+        "image": "image/toothpaste.jpg"
+    }
+]
