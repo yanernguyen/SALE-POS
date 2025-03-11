@@ -1,0 +1,22 @@
+[
+    {
+        "cart": [
+            {
+                "product_id": "SP_0002",
+                "name": "Pepsi",
+                "qty": 1,
+                "unit_price": 12000,
+                "image": "image/pepsi.jpg"
+            },
+            {
+                "product_id": "SP_0003",
+                "name": "Aquafina",
+                "qty": 1,
+                "unit_price": 8000,
+                "image": "image/aquafina.jpg"
+            }
+        ],
+        "datetime": "2025-03-11 18:08:05",
+        "total": 20000.0
+    }
+]
