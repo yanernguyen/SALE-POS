@@ -3,22 +3,20 @@ from PyQt6.QtWidgets import QMessageBox, QLabel, QFrame, QPushButton, QVBoxLayou
 from PyQt6.QtGui import QPixmap
 from PyQt6.QtCore import Qt
 import sys
-from Function_moi import *
-from VendingMachine import * # Import class quản lý sản phẩm và giỏ hàng
+from VendingMachine import *  # Import class quản lý sản phẩm và giỏ hàng
 
 class Ui(QtWidgets.QMainWindow):
     def __init__(self):
         super(Ui, self).__init__()
         uic.loadUi('giaodien.ui', self)
         # Khởi tạo các biến và tham chiếu UI
-        self.functions = SmartMartFunctions()  # Class quản lý sản phẩm và giỏ hàng
+        self.vendingmachine = VendingMachine()  # Class quản lý sản phẩm và giỏ hàng
         self.selected_frames = []  # Danh sách các sản phẩm được chọn
         self.cart_table = self.findChild(QtWidgets.QTableWidget, "cart_table")
         self.label_total = self.findChild(QtWidgets.QLabel, "label_total")
         self.search_bar = self.findChild(QtWidgets.QLineEdit, "search_bar")
         self.scroll_area = self.findChild(QtWidgets.QScrollArea, "scrollArea_products")
         self.product_container = self.findChild(QtWidgets.QGridLayout, "productContainer")
-        self.vendingmachine = VendingMachine()
 
         self.lienketnutlenh()
         self.setup_products()
@@ -44,7 +42,7 @@ class Ui(QtWidgets.QMainWindow):
 
     def load_products(self):
         # Lấy danh sách sản phẩm từ SmartMartFunctions
-        self.products = self.functions.products
+        self.products = self.vendingmachine.inventory.products
 
         # Hiển thị danh mục mặc định (ví dụ: "Beverages")
         self.filter_product("Beverages")
@@ -86,37 +84,23 @@ class Ui(QtWidgets.QMainWindow):
             button = selected_frame.findChild(QPushButton)
             if button and hasattr(button, "product_data"):
                 product = button.product_data  # Lấy đối tượng sản phẩm từ nút
-
-
-
-                # Kiểm tra số lượng tồn kho trước khi thêm vào giỏ hàng
-                if product.stock <= 0:
-                    QMessageBox.warning(self, "Error", f"Sản phẩm '{product.name}' đã hết hàng.")
-                    continue  # Bỏ qua sản phẩm này nếu hết hàng
-
                 # Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
-                if self.functions.cart.has_item(product.id):  # Nếu đã có trong giỏ hàng
-                    self.functions.cart.update_item_quantity(product.id, 1)  # Tăng số lượng lên 1
+                if self.vendingmachine.cart.has_item(product.id):  # Nếu đã có trong giỏ hàng
+                    self.vendingmachine.cart.update_quantity(product.id, 1)  # Tăng số lượng lên 1
                 else:  # Nếu chưa có trong giỏ hàng
-                    if not self.functions.add_to_cart(product.id):  # Thêm sản phẩm mới vào giỏ hàng
+                    if not self.vendingmachine.add_to_cart(product.id):  # Thêm sản phẩm mới vào giỏ hàng
                         QMessageBox.warning(self, "Error", f"Không thể thêm sản phẩm '{product.name}' vào giỏ hàng.")
-                        continue  # Bỏ qua sản phẩm này nếu không thể thêm
-
-                # Giảm số lượng stock của sản phẩm
-                product.stock -= 1  # Giảm số lượng tồn kho
-                if product.stock < 0:
-                    product.stock = 0  # Đảm bảo stock không âm
 
         # Cập nhật lại bảng giỏ hàng sau khi xử lý tất cả sản phẩm
         self.update_cart_table()
-        self.load_products()
+
         # Xóa danh sách sản phẩm được chọn sau khi thêm vào giỏ hàng
         self.selected_frames.clear()
 
     def update_cart_table(self):
         self.cart_table.setRowCount(0)  # Xóa tất cả các dòng hiện tại
-        for row, item in enumerate(self.functions.cart.to_dict()):  # Duyệt qua từng mục trong giỏ hàng
-            product = self.functions.get_product_by_id(item['product_id'])  # Tìm sản phẩm bằng product_id
+        for row, item in enumerate(self.vendingmachine.cart.to_dict()):  # Duyệt qua từng mục trong giỏ hàng
+            product = self.vendingmachine.inventory.get_product(item['product_id'])  # Tìm sản phẩm bằng product_id
             if product:
                 self.cart_table.insertRow(row)
                 # Tên sản phẩm
@@ -138,7 +122,7 @@ class Ui(QtWidgets.QMainWindow):
 
         # Hiển thị sản phẩm phù hợp với từ khóa tìm kiếm
         row, col = 0, 0
-        for product in self.functions.products:
+        for product in self.vendingmachine.inventory.products:
             if search_text in product.name.lower():
                 self.add_product(product, row, col)
                 col += 1
@@ -167,51 +151,75 @@ class Ui(QtWidgets.QMainWindow):
             """)
 
     def remove_from_cart(self):
+        """
+        Xóa sản phẩm khỏi giỏ hàng dựa trên thông tin hiển thị trong bảng.
+        Không cần lấy product_id, sử dụng tên sản phẩm để xác định.
+        """
         # Kiểm tra xem giỏ hàng có trống không
         if self.cart_table.rowCount() == 0:
             QMessageBox.warning(self, "Error", "Giỏ hàng đang trống.")
             return
+
+        # Lấy dòng được chọn trong bảng giỏ hàng
         selected_row = self.cart_table.currentRow()
         if selected_row == -1:
             QMessageBox.warning(self, "Error", "Vui lòng chọn một sản phẩm trong giỏ hàng.")
             return
+
+        # Lấy tên sản phẩm từ cột đầu tiên (cột tên sản phẩm)
         product_name_item = self.cart_table.item(selected_row, 0)
         if not product_name_item:
             QMessageBox.warning(self, "Error", "Không thể xác định sản phẩm được chọn.")
             return
+
         product_name = product_name_item.text()  # Lấy tên sản phẩm
+
+        # Tìm sản phẩm trong giỏ hàng dựa trên tên
         product_to_remove = None
-        for item in self.functions.cart.to_dict():
-            product = self.functions.get_product_by_id(item['product_id'])
+        for item in self.vendingmachine.cart.to_dict():
+            product = self.vendingmachine.inventory.get_product(item['product_id'])
             if product and product.name == product_name:
                 product_to_remove = product
                 break
+
         if not product_to_remove:
             QMessageBox.warning(self, "Error", "Không tìm thấy sản phẩm trong giỏ hàng.")
             return
-        qty_in_cart = item['qty']
-        self.functions.cart.remove_item(product_to_remove.id)
-        product_to_remove.stock += qty_in_cart
-        self.update_cart_table()
-        # Cập nhật lại danh sách sản phẩm hiển thị
-        self.load_products()
+
+        # Xóa sản phẩm khỏi giỏ hàng
+        self.vendingmachine.cart.remove_item(product_to_remove.id)
+        self.update_cart_table()  # Cập nhật lại bảng giỏ hàng
         QMessageBox.information(self, "Success", f"Sản phẩm '{product_name}' đã được xóa khỏi giỏ hàng.")
 
     def checkout(self):
-        # Gọi hàm checkout từ đối tượng SmartMartFunctions
-        total = self.functions.checkout()
-        if total == 0:
-            QMessageBox.warning(self, "Error", "Giỏ hàng đang trống hoặc thanh toán không thành công.")
+        # Hiển thị hộp thoại chọn phương thức thanh toán
+        payment_method_key, ok = QtWidgets.QInputDialog.getItem(
+            self, "Chọn phương thức thanh toán", "Phương thức:", ["cash", "card"], 0, False
+        )
+
+        if not ok:  # Nếu người dùng nhấn "Hủy"
+            return
+
+        success, result = self.vendingmachine.checkout(payment_method_key)
+
+        if success:
+            self.label_total.setText(f"Tổng tiền: {result['receipt']}")
+            QMessageBox.information(self, "Thanh toán thành công!", f"Hóa đơn:\n{result['receipt']}")
+            self.update_cart_table()  # Cập nhật lại giỏ hàng sau khi thanh toán
         else:
-            self.label_total.setText(f"Tổng tiền: {total:,}đ")
-            QMessageBox.information(self, "Checkout", f"Tổng tiền: {total:,}đ\nThanh toán thành công!")
-            self.update_cart_table()  # Cập nhật lại bảng giỏ hàng
+            QMessageBox.warning(self, "Lỗi thanh toán", result)
 
     def filter_product(self, category):
         if hasattr(self, "selected_frames"):
             self.selected_frames.clear()
         # Lọc sản phẩm theo category
-        filtered_products = [p for p in self.functions.products if p.category == category]
+
+
+        filtered_products = [
+            p for p in self.vendingmachine.inventory.products.values()  # Sử dụng .values() để lấy các đối tượng Product
+            if p.category == category
+        ]
+
         # Xóa widget cũ
         for i in reversed(range(self.product_container.count())):
             widget = self.product_container.itemAt(i).widget()
