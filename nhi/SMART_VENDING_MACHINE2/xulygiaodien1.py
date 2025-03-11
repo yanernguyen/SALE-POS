@@ -5,6 +5,8 @@ from PyQt6.QtCore import Qt
 import sys
 from Function_moi import *  # Import class quản lý sản phẩm và giỏ hàng
 from CInvoice import Invoice
+from CProductList import ProductList
+from Cart import Cart
 
 
 class Ui(QtWidgets.QMainWindow):
@@ -13,6 +15,8 @@ class Ui(QtWidgets.QMainWindow):
         uic.loadUi('giaodien.ui', self)
         # Khởi tạo các biến và tham chiếu UI
         self.functions = SmartMartFunctions()  # Class quản lý sản phẩm và giỏ hàng
+        self.productlist = ProductList()
+        self.cart = Cart()
         self.selected_frames = []  # Danh sách các sản phẩm được chọn
         self.cart_table = self.findChild(QtWidgets.QTableWidget, "cart_table")
         self.label_total = self.findChild(QtWidgets.QLabel, "label_total")
@@ -44,7 +48,7 @@ class Ui(QtWidgets.QMainWindow):
 
     def load_products(self):
         # Lấy danh sách sản phẩm từ SmartMartFunctions
-        self.products = self.functions.products
+        self.products = self.productlist.products
 
         # Hiển thị danh mục mặc định (ví dụ: "Beverages")
         self.filter_product("Beverages")
@@ -87,10 +91,10 @@ class Ui(QtWidgets.QMainWindow):
             if button and hasattr(button, "product_data"):
                 product = button.product_data  # Lấy đối tượng sản phẩm từ nút
                 # Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
-                if self.functions.cart.has_item(product.id):  # Nếu đã có trong giỏ hàng
-                    self.functions.cart.update_item_quantity(product.id, 1)  # Tăng số lượng lên 1
+                if self.cart.has_item(product.id):  # Nếu đã có trong giỏ hàng
+                    self.cart.update_item_quantity(product.id, 1)  # Tăng số lượng lên 1
                 else:  # Nếu chưa có trong giỏ hàng
-                    if not self.functions.add_to_cart(product.id):  # Thêm sản phẩm mới vào giỏ hàng
+                    if not self.cart.add_to_cart(product.id):  # Thêm sản phẩm mới vào giỏ hàng
                         QMessageBox.warning(self, "Error", f"Không thể thêm sản phẩm '{product.name}' vào giỏ hàng.")
 
         # Cập nhật lại bảng giỏ hàng sau khi xử lý tất cả sản phẩm
@@ -102,8 +106,8 @@ class Ui(QtWidgets.QMainWindow):
     def update_cart_table(self):
         self.cart_table.setRowCount(0) # Xóa tất cả các dòng hiện tại
         self.label_total.clear()
-        for row, item in enumerate(self.functions.cart.to_dict()):  # Duyệt qua từng mục trong giỏ hàng
-            product = self.functions.get_product_by_id(item['product_id'])  # Tìm sản phẩm bằng product_id
+        for row, item in enumerate(self.cart.to_dict()):  # Duyệt qua từng mục trong giỏ hàng
+            product = self.productlist.get_product_by_id(item['product_id'])  # Tìm sản phẩm bằng product_id
             if product:
                 self.cart_table.insertRow(row)
                 # Tên sản phẩm
@@ -125,7 +129,7 @@ class Ui(QtWidgets.QMainWindow):
 
         # Hiển thị sản phẩm phù hợp với từ khóa tìm kiếm
         row, col = 0, 0
-        for product in self.functions.products:
+        for product in self.productlist.products:
             if search_text in product.name.lower():
                 self.add_product(product, row, col)
                 col += 1
@@ -179,8 +183,8 @@ class Ui(QtWidgets.QMainWindow):
 
         # Tìm sản phẩm trong giỏ hàng dựa trên tên
         product_to_remove = None
-        for item in self.functions.cart.to_dict():
-            product = self.functions.get_product_by_id(item['product_id'])
+        for item in self.cart.to_dict():
+            product = self.productlist.get_product_by_id(item['product_id'])
             if product and product.name == product_name:
                 product_to_remove = product
                 break
@@ -190,19 +194,19 @@ class Ui(QtWidgets.QMainWindow):
             return
 
         # Xóa sản phẩm khỏi giỏ hàng
-        self.functions.cart.remove_item(product_to_remove.id)
+        self.cart.remove_item(product_to_remove.id)
         self.update_cart_table()  # Cập nhật lại bảng giỏ hàng
         QMessageBox.information(self, "Success", f"Sản phẩm '{product_name}' đã được xóa khỏi giỏ hàng.")
 
     def checkout(self):
-        total = self.functions.checkout()
+        total = self.cart.checkout()
 
         if total == -1:
             QMessageBox.warning(self, "Error", "Giỏ hàng đang trống.")
         else:
-            invoice = Invoice(self.functions.get_cart(), total)  # Tạo hóa đơn mới
+            invoice = Invoice(self.cart.get_cart(), total)  # Tạo hóa đơn mới
             invoice.save_to_json()  # Lưu vào file JSON
-            self.functions.cart.clear()
+            self.cart.clear()
             self.label_total.setText(f"Tổng tiền: {invoice.total:,}đ")
             QMessageBox.information(self, "Checkout", f"Tổng tiền: {invoice.total:,}đ\nThanh toán thành công!")
 
@@ -212,7 +216,7 @@ class Ui(QtWidgets.QMainWindow):
         if hasattr(self, "selected_frames"):
             self.selected_frames.clear()
         # Lọc sản phẩm theo category
-        filtered_products = [p for p in self.functions.products if p.category == category]
+        filtered_products = [p for p in self.productlist.products if p.category == category]
         # Xóa widget cũ
         for i in reversed(range(self.product_container.count())):
             widget = self.product_container.itemAt(i).widget()

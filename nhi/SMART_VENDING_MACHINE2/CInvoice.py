@@ -14,7 +14,7 @@ class Invoice:
     def to_dict(self):
         """ Chuyển hóa đơn thành dictionary để lưu JSON """
         return {
-            "cart" : self.cart.to_dict(),
+            "cart": self.cart.to_dict() if hasattr(self.cart, "to_dict") else self.cart,
             "datetime": self.datetime,
             "total": self.total
         }

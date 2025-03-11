@@ -298,5 +298,62 @@
             }
         ],
         "total": 20000.0
+    },
+    {
+        "items": [
+            {
+                "product_id": "SP_0003",
+                "name": "Aquafina",
+                "qty": 1,
+                "unit_price": 8000,
+                "image": "image/aquafina.jpg"
+            },
+            {
+                "product_id": "SP_0006",
+                "name": "Cafe",
+                "qty": 1,
+                "unit_price": 20000,
+                "image": "image/cafe.jpg"
+            }
+        ],
+        "total": 28000.0
+    },
+    {
+        "items": [
+            {
+                "product_id": "SP_0006",
+                "name": "Cafe",
+                "qty": 1,
+                "unit_price": 20000,
+                "image": "image/cafe.jpg"
+            },
+            {
+                "product_id": "SP_0003",
+                "name": "Aquafina",
+                "qty": 1,
+                "unit_price": 8000,
+                "image": "image/aquafina.jpg"
+            }
+        ],
+        "total": 28000.0
+    },
+    {
+        "items": [
+            {
+                "product_id": "SP_0006",
+                "name": "Cafe",
+                "qty": 1,
+                "unit_price": 20000,
+                "image": "image/cafe.jpg"
+            },
+            {
+                "product_id": "SP_0003",
+                "name": "Aquafina",
+                "qty": 1,
+                "unit_price": 8000,
+                "image": "image/aquafina.jpg"
+            }
+        ],
+        "total": 28000.0
     }
 ]

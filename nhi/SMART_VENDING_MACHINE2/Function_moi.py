@@ -12,13 +12,24 @@ class SmartMartFunctions:
         return self.cart
 
     def load_products(self) -> List[Product]:
+        products = []
         try:
             with open("data/products.json", "r") as file:
                 products_data = json.load(file)
-                return [Product(**data) for data in products_data]  # Chuyển đổi dữ liệu JSON thành đối tượng Product
+
+                for data in products_data:
+                    product = Product(
+                        id=data["id"],
+                        name=data["name"],
+                        price=data["price"],
+                        stock=data["stock"],
+                        category=data["category"],
+                        image=data["image"]
+                    )
+                    products.append(product)  # Chuyển đổi dữ liệu JSON thành đối tượng Product
         except FileNotFoundError:
             print("⚠️ Lỗi: Không tìm thấy file products.json.")
-            return []
+        return products
 
     def save_products(self):
         try:
