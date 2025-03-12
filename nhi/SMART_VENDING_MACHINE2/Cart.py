@@ -13,21 +13,27 @@ class Cart:
     def get_cart(self):
         return self.cart
 
-    def add_item(self, product: Product, quantity: int):
-        if not isinstance(product, Product):
-            raise ValueError("Invalid product object")
-        if not isinstance(quantity, int) or quantity <= 0:
-            raise ValueError("Quantity must be a positive integer")
+    def add_product(self, product_id: str, quantity: int = 1) -> bool:
+        product = self.product_list.get_product_by_id(product_id)
+        if not product:
+            return False  # Không tìm thấy sản phẩm
 
-        if product.id not in self.cart:
-            self.cart[product.id] = {
-                'name': product.name,
-                'qty': quantity,
-                'unit_price': product.price,
-                'image': product.image
-            }
-        else:
-            self.cart[product.id]['qty'] += quantity
+        if product.stock >= quantity:  # Kiểm tra số lượng tồn kho
+            if product.id not in self.cart:
+                self.cart[product.id] = {
+                    'name': product.name,
+                    'qty': quantity,
+                    'unit_price': product.price,
+                    'image': product.image
+                }
+            else:
+                self.cart[product.id]['qty'] += quantity
+
+            product.stock -= quantity  # Cập nhật số lượng tồn kho
+            self.product_list.save_products()  # Lưu thay đổi vào file
+            return True
+
+        return False  # Không đủ hàng để thêm vào giỏ
 
     def update_item_quantity(self, product_id: str, quantity_change: int):
         if product_id in self.cart:
@@ -35,10 +41,16 @@ class Cart:
             if self.cart[product_id]['qty'] <= 0:
                 self.remove_item(product_id)
 
-    def remove_item(self, product_id: str):
+    def remove_product(self, product_id: str) -> bool:
         if product_id in self.cart:
-            self.cart.pop(product_id)
+            product = self.product_list.get_product_by_id(product_id)
+            if product:
+                product.stock += self.cart[product_id]['qty']  # Hoàn lại số lượng vào kho
+                self.product_list.save_products()  # Lưu thay đổi tồn kho vào file
 
+            del self.cart[product_id]  # Xóa sản phẩm khỏi giỏ hàng
+            return True
+        return False
     def has_item(self, product_id: str) -> bool:
         return product_id in self.cart
 
@@ -86,15 +98,15 @@ class Cart:
             print("⚠️ Lỗi: Không tìm thấy file cart.json.")
             self.cart.items = {}
 
-    def remove_from_cart(self, product_id: str) -> bool:
-        """Xóa sản phẩm khỏi giỏ hàng theo ID."""
-        product = self.product_list.get_product_by_id(product_id)
-        if product in self.cart.items:  # Kiểm tra nếu sản phẩm có trong giỏ hàng
-            self.remove_item(product)  # Xóa sản phẩm khỏi giỏ hàng
-            product.stock += 1  # Tăng lại số lượng tồn kho
-            self.product_list.save_products()  # Lưu thay đổi tồn kho vào file
-            return True
-        return False  # Không xóa được (không tìm thấy sản phẩm trong giỏ hàng)
+    # def remove_from_cart(self, product_id: str) -> bool:
+    #     """Xóa sản phẩm khỏi giỏ hàng theo ID."""
+    #     product = self.product_list.get_product_by_id(product_id)
+    #     if product in self.cart.items:  # Kiểm tra nếu sản phẩm có trong giỏ hàng
+    #         self.remove_item(product)  # Xóa sản phẩm khỏi giỏ hàng
+    #         product.stock += 1  # Tăng lại số lượng tồn kho
+    #         self.product_list.save_products()  # Lưu thay đổi tồn kho vào file
+    #         return True
+    #     return False  # Không xóa được (không tìm thấy sản phẩm trong giỏ hàng)
 
     def checkout(self) -> float: #Nằm trong giao diện
         if not self.cart.items:
@@ -123,9 +135,9 @@ class Cart:
         with open("data/cart.json", "w") as file:
             json.dump(cart_data, file, indent=4)
 
-    def add_to_cart(self, product_id: str) -> bool:
-        product = self.product_list.get_product_by_id(product_id)
-        if product.stock > 0:  # Kiểm tra sản phẩm có tồn tại và còn hàng
-            self.add_item(product, 1)  # Thêm sản phẩm vào giỏ hàng
-            return True
-        return False
+    # def add_to_cart(self, product_id: str) -> bool:
+    #     product = self.product_list.get_product_by_id(product_id)
+    #     if product.stock > 0:  # Kiểm tra sản phẩm có tồn tại và còn hàng
+    #         self.add_item(product, 1)  # Thêm sản phẩm vào giỏ hàng
+    #         return True
+    #     return False

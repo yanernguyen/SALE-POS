@@ -3,7 +3,7 @@ from PyQt6.QtWidgets import QMessageBox, QLabel, QFrame, QPushButton, QVBoxLayou
 from PyQt6.QtGui import QPixmap
 from PyQt6.QtCore import Qt
 import sys
-from Function_moi import *  # Import class quản lý sản phẩm và giỏ hàng
+  # Import class quản lý sản phẩm và giỏ hàng
 from CInvoice import Invoice
 from CProductList import ProductList
 from Cart import Cart
@@ -14,7 +14,7 @@ class Ui(QtWidgets.QMainWindow):
         super(Ui, self).__init__()
         uic.loadUi('giaodien.ui', self)
         # Khởi tạo các biến và tham chiếu UI
-        self.functions = SmartMartFunctions()  # Class quản lý sản phẩm và giỏ hàng
+        # self.functions = SmartMartFunctions()  # Class quản lý sản phẩm và giỏ hàng
         self.productlist = ProductList()
         self.cart = Cart()
         self.selected_frames = []  # Danh sách các sản phẩm được chọn
@@ -94,7 +94,7 @@ class Ui(QtWidgets.QMainWindow):
                 if self.cart.has_item(product.id):  # Nếu đã có trong giỏ hàng
                     self.cart.update_item_quantity(product.id, 1)  # Tăng số lượng lên 1
                 else:  # Nếu chưa có trong giỏ hàng
-                    if not self.cart.add_to_cart(product.id):  # Thêm sản phẩm mới vào giỏ hàng
+                    if not self.cart.add_product(product.id):  # Thêm sản phẩm mới vào giỏ hàng
                         QMessageBox.warning(self, "Error", f"Không thể thêm sản phẩm '{product.name}' vào giỏ hàng.")
 
         # Cập nhật lại bảng giỏ hàng sau khi xử lý tất cả sản phẩm
@@ -194,7 +194,7 @@ class Ui(QtWidgets.QMainWindow):
             return
 
         # Xóa sản phẩm khỏi giỏ hàng
-        self.cart.remove_item(product_to_remove.id)
+        self.cart.remove_product(product_to_remove.id)
         self.update_cart_table()  # Cập nhật lại bảng giỏ hàng
         QMessageBox.information(self, "Success", f"Sản phẩm '{product_name}' đã được xóa khỏi giỏ hàng.")
 

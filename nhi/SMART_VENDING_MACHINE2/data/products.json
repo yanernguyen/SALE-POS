@@ -19,7 +19,7 @@
         "id": "SP_0003",
         "name": "Aquafina",
         "price": 8000,
-        "stock": 9,
+        "stock": 8,
         "category": "Beverages",
         "image": "image/aquafina.jpg"
     },
@@ -43,7 +43,7 @@
         "id": "SP_0006",
         "name": "Cafe",
         "price": 20000,
-        "stock": 8,
+        "stock": 7,
         "category": "Beverages",
         "image": "image/cafe.jpg"
     },

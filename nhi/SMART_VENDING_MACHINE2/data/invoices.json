@@ -74,5 +74,23 @@
         },
         "datetime": "2025-03-11 21:18:44",
         "total": 28000.0
+    },
+    {
+        "cart": {
+            "SP_0003": {
+                "name": "Aquafina",
+                "qty": 1,
+                "unit_price": 8000,
+                "image": "image/aquafina.jpg"
+            },
+            "SP_0006": {
+                "name": "Cafe",
+                "qty": 1,
+                "unit_price": 20000,
+                "image": "image/cafe.jpg"
+            }
+        },
+        "datetime": "2025-03-12 10:25:31",
+        "total": 28000.0
     }
 ]
