@@ -206,8 +206,15 @@ class Ui(QtWidgets.QMainWindow):
         else:
             invoice = Invoice(self.cart.get_cart(), total)  # Tạo hóa đơn mới
             invoice.save_to_json()  # Lưu vào file JSON
+
+            for item in self.cart.to_dict():
+                success = self.productlist.reduce_stock(item['product_id'], item['qty'])
+                if success is False:
+                    QMessageBox.warning(self, "Lỗi", f"Sản phẩm {item['product_id']} không đủ hàng.")
+
+            self.load_products()
             self.cart.clear()
-            self.label_total.setText(f"Tổng tiền: {invoice.total:,}đ")
+            self.label_total.setText(f" {invoice.total:,0f}đ")
             QMessageBox.information(self, "Checkout", f"Tổng tiền: {invoice.total:,}đ\nThanh toán thành công!")
 
             self.update_cart_table()  # Cập nhật lại giao diện giỏ hàng

@@ -51,3 +51,13 @@ class ProductList:
             if product.name == product_name:
                 return product
         return None
+
+    def reduce_stock(self, product_id: str, quantity: int):
+        product = self.get_product_by_id(product_id)
+        if product:
+            if product.stock >= quantity:
+                product.stock -= quantity
+                return True  # Giảm stock thành công
+            else:
+                return False  # Không đủ hàng trong kho
+        return None

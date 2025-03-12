@@ -39,7 +39,7 @@ class Cart:
         if product_id in self.cart:
             self.cart[product_id]['qty'] += quantity_change
             if self.cart[product_id]['qty'] <= 0:
-                self.remove_item(product_id)
+                self.remove_product(product_id)
 
     def remove_product(self, product_id: str) -> bool:
         if product_id in self.cart:
