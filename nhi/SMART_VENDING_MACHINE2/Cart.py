@@ -64,6 +64,9 @@ class Cart:
 
     def get_total(self) -> float:
         total = 0.0
+        tax = 0.0  # Khởi tạo trước
+        total_after_tax = 0.0
+
         for item in self.cart.values():
             total += item['unit_price'] * item['qty']
             tax = total* 0.1
@@ -117,7 +120,7 @@ class Cart:
 
     def checkout(self) -> float: #Nằm trong giao diện
         if not self.cart.items:
-            return 0  # Giỏ hàng trống, không thực hiện thanh toán
+            return -1,0,0  # Giỏ hàng trống, không thực hiện thanh toán
         total, tax, total_after_tax = self.get_total()  # Tính tổng tiền
         if total > 0:
             # Lưu thông tin giỏ hàng vào file cart.json
@@ -125,7 +128,7 @@ class Cart:
             self.save_cart(total_after_tax)
             # Xóa giỏ hàng sau khi thanh toán
             return total, tax, total_after_tax
-        return 0
+        return -1,0,0
 
     def save_cart(self, total: float):
         try:
