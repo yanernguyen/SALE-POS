@@ -23,8 +23,22 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">QMainWindow {
-    background-color: #F5F5F5; /* Màu nền nhẹ */
+   <string notr="true">QTableWidget {
+    background: white;
+    border-radius: 5px;
+    border: 1px solid #E0E0E0;
+    gridline-color: #E0E0E0;
+}
+
+QTableWidget::item {
+    padding: 8px;
+}
+
+QHeaderView::section {
+    background: #4CAF50;
+    color: white;
+    padding: 5px;
+    border: none;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -40,10 +54,15 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Sitka Small</family>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
     background-color: #AFE1AF; /* Màu xanh lá */
-    color: black; /* Màu chữ trắng */
+    color: 333333; /* Màu chữ trắng */
     border-radius: 5px; /* Bo góc */
     padding: 10px;
 }
@@ -130,10 +149,15 @@ QScrollBar::handle:vertical:hover {
         <height>41</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Sitka Small</family>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
     background-color: #AFE1AF; /* Màu xanh lá */
-    color: black; /* Màu chữ trắng */
+    color: 333333; /* Màu chữ trắng */
     border-radius: 5px; /* Bo góc */
     padding: 10px;
 }
@@ -148,16 +172,21 @@ QPushButton:hover {
      <widget class="QPushButton" name="pushButton_FastFood">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>170</x>
         <y>20</y>
-        <width>101</width>
+        <width>111</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Sitka Small</family>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
     background-color: #AFE1AF; /* Màu xanh lá */
-    color: black; /* Màu chữ trắng */
+    color: 333333; /* Màu chữ trắng */
     border-radius: 5px; /* Bo góc */
     padding: 10px;
 }
@@ -172,16 +201,21 @@ QPushButton:hover {
      <widget class="QPushButton" name="pushButton_Snacks">
       <property name="geometry">
        <rect>
-        <x>340</x>
+        <x>330</x>
         <y>20</y>
         <width>101</width>
         <height>41</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Sitka Small</family>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
     background-color: #AFE1AF; /* Màu xanh lá */
-    color: black; /* Màu chữ trắng */
+    color: 333333; /* Màu chữ trắng */
     border-radius: 5px; /* Bo góc */
     padding: 10px;
 }
@@ -196,16 +230,21 @@ QPushButton:hover {
      <widget class="QPushButton" name="pushButton_PersonalCares">
       <property name="geometry">
        <rect>
-        <x>500</x>
+        <x>480</x>
         <y>20</y>
-        <width>131</width>
+        <width>151</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Sitka Small</family>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
     background-color: #AFE1AF; /* Màu xanh lá */
-    color: black; /* Màu chữ trắng */
+    color: 333333; /* Màu chữ trắng */
     border-radius: 5px; /* Bo góc */
     padding: 10px;
 }
@@ -230,7 +269,10 @@ QPushButton:hover {
     </property>
     <property name="font">
      <font>
+      <family>Sitka</family>
       <pointsize>9</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="title">
@@ -253,6 +295,12 @@ QPushButton:hover {
        <width>421</width>
        <height>331</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Sitka Small</family>
+       <pointsize>8</pointsize>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">QTableWidget {
@@ -352,6 +400,11 @@ QHeaderView::section {
           <height>41</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>Sitka Small</family>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">QPushButton {
     background-color: #4CAF50; /* Màu xanh lá */
@@ -386,6 +439,11 @@ QPushButton:pressed {
           <height>41</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>Sitka Small</family>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">QPushButton {
     background-color: #4CAF50; /* Màu xanh lá */
@@ -413,6 +471,11 @@ QPushButton:pressed {
           <width>439</width>
           <height>41</height>
          </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Sitka Small</family>
+         </font>
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton {
@@ -444,26 +507,28 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <pointsize>8</pointsize>
+          <pointsize>-1</pointsize>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton {
-    background-color: white; /* Màu xanh lá */
-	border: 2px solid #4CAF50;
-    color: black
-; /* Màu chữ trắng */
-    border-radius: 5px; /* Bo góc */
-    padding: 10px;
-}
-QPushButton:hover {
-    background-color: #45a049; /* Màu xanh lá đậm khi hover */
-}
-QPushButton:pressed {
-    background-color: #388E3C;
+    background-color: white; /* Loại bỏ màu nền */
+    border: 2px solid #4CAF50; /* Viền màu xanh lá */
+    color: 333333; /* Màu chữ */
+    font-size: 14px;
+    border-radius: 8px; /* Bo góc */
+    padding: 8px 15px;
 }
 
-</string>
+QPushButton:hover {
+    border: 2px solid #388E3C; /* Viền đậm hơn khi hover */
+    color: #388E3C; /* Màu chữ thay đổi khi hover */
+}
+
+QPushButton:pressed {
+    border: 2px solid #1B5E20; /* Viền đậm hơn khi bấm */
+    color: #1B5E20;
+}</string>
         </property>
         <property name="text">
          <string>CHECK OUT</string>
@@ -486,6 +551,11 @@ QPushButton:pressed {
        <layout class="QVBoxLayout" name="verticalLayout_8">
         <item>
          <widget class="QLabel" name="label">
+          <property name="font">
+           <font>
+            <family>Sitka Small</family>
+           </font>
+          </property>
           <property name="text">
            <string>SUB TOTAL</string>
           </property>
@@ -493,6 +563,11 @@ QPushButton:pressed {
         </item>
         <item>
          <widget class="QLabel" name="label_2">
+          <property name="font">
+           <font>
+            <family>Sitka Small</family>
+           </font>
+          </property>
           <property name="text">
            <string>TAX</string>
           </property>
@@ -500,6 +575,11 @@ QPushButton:pressed {
         </item>
         <item>
          <widget class="QLabel" name="label_5">
+          <property name="font">
+           <font>
+            <family>Sitka Small</family>
+           </font>
+          </property>
           <property name="text">
            <string>TOTAL</string>
           </property>
@@ -523,6 +603,11 @@ QPushButton:pressed {
        <layout class="QVBoxLayout" name="verticalLayout_9">
         <item>
          <widget class="QLabel" name="label_subtotal">
+          <property name="font">
+           <font>
+            <family>Sitka Small</family>
+           </font>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -530,6 +615,11 @@ QPushButton:pressed {
         </item>
         <item>
          <widget class="QLabel" name="label_tax">
+          <property name="font">
+           <font>
+            <family>Sitka Small</family>
+           </font>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -537,6 +627,11 @@ QPushButton:pressed {
         </item>
         <item>
          <widget class="QLabel" name="label_total">
+          <property name="font">
+           <font>
+            <family>Sitka Small</family>
+           </font>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -585,7 +680,7 @@ QPushButton:pressed {
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>648</width>
+       <width>638</width>
        <height>551</height>
       </rect>
      </property>
@@ -661,6 +756,12 @@ QPushButton:pressed {
                <height>190</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Sitka Small</family>
+               <pointsize>8</pointsize>
+              </font>
+             </property>
              <property name="autoFillBackground">
               <bool>false</bool>
              </property>
@@ -698,7 +799,7 @@ QPushButton:pressed {
               <string notr="true">QPushButton {
     background-color: transparent; /* Loại bỏ màu nền */
     border: 2px solid #4CAF50; /* Viền màu xanh lá */
-    color: black; /* Màu chữ */
+    color: 333333; /* Màu chữ */
     font-size: 14px;
     border-radius: 8px; /* Bo góc */
     padding: 8px 15px;
@@ -774,7 +875,7 @@ QPushButton:hover {
      <x>0</x>
      <y>0</y>
      <width>1130</width>
-     <height>18</height>
+     <height>27</height>
     </rect>
    </property>
   </widget>

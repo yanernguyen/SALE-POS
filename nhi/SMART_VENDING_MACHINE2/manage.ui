@@ -6,9 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1141</width>
-    <height>800</height>
+    <width>1131</width>
+    <height>753</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Sitka Small</family>
+   </font>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -17,19 +22,26 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>460</x>
+      <x>440</x>
       <y>20</y>
-      <width>281</width>
+      <width>321</width>
       <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Sitka Small Semibold</family>
-      <pointsize>12</pointsize>
+      <pointsize>14</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    color: green ; 
+}
+
+</string>
     </property>
     <property name="text">
      <string>Product Management</string>
@@ -40,24 +52,38 @@
      <rect>
       <x>20</x>
       <y>90</y>
-      <width>1101</width>
-      <height>441</height>
+      <width>1091</width>
+      <height>421</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Sitka Text Semibold</family>
-      <weight>75</weight>
-      <bold>true</bold>
+      <family>Sitka Small</family>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">
-    QHeaderView::section { 
-        background-color: #F0F0F0;
-font-weight: bold;
-    }
-</string>
+     <string notr="true">QTableWidget {
+    background: white;
+    border-radius: 5px;
+    border: 1px solid #E0E0E0;
+    gridline-color: #E0E0E0;
+}
+
+QTableWidget::item {
+    padding: 8px;
+}
+
+QHeaderView::section {
+    background: #F0F0F0 ;
+    color: black;
+    padding: 5px;
+    border: none;
+}</string>
+    </property>
+    <property name="autoScrollMargin">
+     <number>30</number>
     </property>
     <property name="showGrid">
      <bool>true</bool>
@@ -69,10 +95,10 @@ font-weight: bold;
      <bool>true</bool>
     </property>
     <attribute name="horizontalHeaderDefaultSectionSize">
-     <number>184</number>
+     <number>182</number>
     </attribute>
     <attribute name="horizontalHeaderMinimumSectionSize">
-     <number>51</number>
+     <number>41</number>
     </attribute>
     <attribute name="verticalHeaderDefaultSectionSize">
      <number>51</number>
@@ -114,8 +140,8 @@ font-weight: bold;
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>550</y>
+      <x>90</x>
+      <y>520</y>
       <width>281</width>
       <height>41</height>
      </rect>
@@ -135,8 +161,8 @@ font-weight: bold;
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>600</y>
+      <x>180</x>
+      <y>570</y>
       <width>401</width>
       <height>41</height>
      </rect>
@@ -168,8 +194,8 @@ QLineEdit:focus {
    <widget class="QLineEdit" name="lineEdit_3">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>660</y>
+      <x>180</x>
+      <y>630</y>
       <width>401</width>
       <height>41</height>
      </rect>
@@ -198,8 +224,8 @@ QLineEdit:focus {
    <widget class="QLineEdit" name="lineEdit_4">
     <property name="geometry">
      <rect>
-      <x>730</x>
-      <y>660</y>
+      <x>740</x>
+      <y>630</y>
       <width>121</width>
       <height>41</height>
      </rect>
@@ -228,8 +254,8 @@ QLineEdit:focus {
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>610</y>
+      <x>90</x>
+      <y>580</y>
       <width>59</width>
       <height>17</height>
      </rect>
@@ -247,8 +273,8 @@ QLineEdit:focus {
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>660</y>
+      <x>90</x>
+      <y>630</y>
       <width>91</width>
       <height>41</height>
      </rect>
@@ -266,8 +292,8 @@ QLineEdit:focus {
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>610</y>
+      <x>640</x>
+      <y>580</y>
       <width>101</width>
       <height>20</height>
      </rect>
@@ -285,8 +311,8 @@ QLineEdit:focus {
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>660</y>
+      <x>640</x>
+      <y>630</y>
       <width>59</width>
       <height>31</height>
      </rect>
@@ -304,8 +330,8 @@ QLineEdit:focus {
    <widget class="QSpinBox" name="spinBox">
     <property name="geometry">
      <rect>
-      <x>730</x>
-      <y>600</y>
+      <x>740</x>
+      <y>570</y>
       <width>121</width>
       <height>41</height>
      </rect>
@@ -320,8 +346,8 @@ QLineEdit:focus {
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>900</x>
-      <y>600</y>
+      <x>910</x>
+      <y>570</y>
       <width>141</width>
       <height>41</height>
      </rect>
@@ -355,8 +381,8 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>900</x>
-      <y>660</y>
+      <x>910</x>
+      <y>630</y>
       <width>141</width>
       <height>41</height>
      </rect>
@@ -393,8 +419,8 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1141</width>
-     <height>27</height>
+     <width>1131</width>
+     <height>29</height>
     </rect>
    </property>
   </widget>
