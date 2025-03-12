@@ -3,7 +3,7 @@
         "id": "SP_0001",
         "name": "CocaCola",
         "price": 10000,
-        "stock": 0,
+        "stock": 7,
         "category": "Beverages",
         "image": "image/cocacola.jpg"
     },
@@ -11,7 +11,7 @@
         "id": "SP_0002",
         "name": "Pepsi",
         "price": 12000,
-        "stock": 15,
+        "stock": 6,
         "category": "Beverages",
         "image": "image/pepsi.jpg"
     },
@@ -19,7 +19,7 @@
         "id": "SP_0003",
         "name": "Aquafina",
         "price": 8000,
-        "stock": 0,
+        "stock": 1,
         "category": "Beverages",
         "image": "image/aquafina.jpg"
     },
@@ -27,7 +27,7 @@
         "id": "SP_0004",
         "name": "Red Bull",
         "price": 15000,
-        "stock": 0,
+        "stock": 5,
         "category": "Beverages",
         "image": "image/redbull.jpg"
     },
@@ -35,7 +35,7 @@
         "id": "SP_0005",
         "name": "Sprite",
         "price": 11000,
-        "stock": 0,
+        "stock": 10,
         "category": "Beverages",
         "image": "image/sprite.jpg"
     },
@@ -43,7 +43,7 @@
         "id": "SP_0006",
         "name": "Cafe",
         "price": 20000,
-        "stock": 0,
+        "stock": 6,
         "category": "Beverages",
         "image": "image/cafe.jpg"
     },
@@ -102,5 +102,101 @@
         "stock": 8,
         "category": "Personal Cares",
         "image": "image/toothpaste.jpg"
+    },
+    {
+        "id": "SP_0014",
+        "name": "Lipton Tea",
+        "price": 18000,
+        "stock": 7,
+        "category": "Beverages",
+        "image": "image/lipton.jpg"
+    },
+    {
+        "id": "SP_0015",
+        "name": "Fanta",
+        "price": 10000,
+        "stock": 11,
+        "category": "Beverages",
+        "image": "image/fanta.jpg"
+    },
+    {
+        "id": "SP_0016",
+        "name": "Nestea",
+        "price": 15000,
+        "stock": 10,
+        "category": "Beverages",
+        "image": "image/nestea.jpg"
+    },
+    {
+        "id": "SP_0017",
+        "name": "Hot Dog",
+        "price": 22000,
+        "stock": 12,
+        "category": "Fast Food",
+        "image": "image/hotdog.jpg"
+    },
+    {
+        "id": "SP_0018",
+        "name": "French Fries",
+        "price": 18000,
+        "stock": 15,
+        "category": "Fast Food",
+        "image": "image/frenchfries.jpg"
+    },
+    {
+        "id": "SP_0019",
+        "name": "Taco",
+        "price": 35000,
+        "stock": 7,
+        "category": "Fast Food",
+        "image": "image/taco.jpg"
+    },
+    {
+        "id": "SP_0020",
+        "name": "Popcorn",
+        "price": 12000,
+        "stock": 20,
+        "category": "Snacks",
+        "image": "image/popcorn.jpg"
+    },
+    {
+        "id": "SP_0021",
+        "name": "Nuts Mix",
+        "price": 25000,
+        "stock": 10,
+        "category": "Snacks",
+        "image": "image/nutsmix.jpg"
+    },
+    {
+        "id": "SP_0022",
+        "name": "Granola Bar",
+        "price": 30000,
+        "stock": 8,
+        "category": "Snacks",
+        "image": "image/granolabar.jpg"
+    },
+    {
+        "id": "SP_0023",
+        "name": "Body Lotion",
+        "price": 50000,
+        "stock": 6,
+        "category": "Personal Cares",
+        "image": "image/bodylotion.jpg"
+    },
+    {
+        "id": "SP_0024",
+        "name": "Face Wash",
+        "price": 45000,
+        "stock": 9,
+        "category": "Personal Cares",
+        "image": "image/facewash.jpg"
+    },
+    {
+        "id": "SP_0025",
+        "name": "Hair Conditioner",
+        "price": 55000,
+        "stock": 7,
+        "category": "Personal Cares",
+        "image": "image/conditioner.jpg"
     }
 ]
