@@ -3,7 +3,7 @@
         "id": "SP_0001",
         "name": "CocaCola",
         "price": 10000,
-        "stock": 1,
+        "stock": 0,
         "category": "Beverages",
         "image": "image/cocacola.jpg"
     },
@@ -11,7 +11,7 @@
         "id": "SP_0002",
         "name": "Pepsi",
         "price": 12000,
-        "stock": 5,
+        "stock": 15,
         "category": "Beverages",
         "image": "image/pepsi.jpg"
     },

@@ -91,11 +91,10 @@ class Ui(QtWidgets.QMainWindow):
             if button and hasattr(button, "product_data"):
                 product = button.product_data  # Lấy đối tượng sản phẩm từ nút
                 # Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
-                if self.cart.has_item(product.id):  # Nếu đã có trong giỏ hàng
-                    self.cart.update_item_quantity(product.id, 1)  # Tăng số lượng lên 1
-                else:  # Nếu chưa có trong giỏ hàng
-                    if not self.cart.add_product(product.id):  # Thêm sản phẩm mới vào giỏ hàng
-                        QMessageBox.warning(self, "Error", f"Không thể thêm sản phẩm '{product.name}' vào giỏ hàng.")
+                if not self.cart.add_product(product.id):
+                    QMessageBox.warning(self, "Lỗi",
+                                        f"Không thể thêm sản phẩm '{product.name}' vào giỏ hàng. Có thể số lượng tồn kho không đủ.")
+
 
         # Cập nhật lại bảng giỏ hàng sau khi xử lý tất cả sản phẩm
         self.update_cart_table()
@@ -214,6 +213,7 @@ class Ui(QtWidgets.QMainWindow):
                 if success is False:
                     QMessageBox.warning(self, "Lỗi", f"Sản phẩm {item['product_id']} không đủ hàng.")
 
+            self.productlist.load_products()
             self.load_products()
             self.cart.clear()
             self.label_total.setText(f" {invoice.total:,.0f}đ")

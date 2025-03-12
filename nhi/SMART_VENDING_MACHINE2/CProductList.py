@@ -64,15 +64,6 @@ class ProductList:
         return None
 
 
-
-
-    #Thao tác manager
-    def add_product(self, product: Product, admin_name: str):
-        """Thêm sản phẩm vào danh sách.""" #KHÔNG DÙNG
-        self.products.append(product)
-        self.save_products()
-        self.log_update("Thêm sản phẩm mới", product, admin_name)
-
     def update_product_stock(self, product_id: str, quantity: int, admin_name: str):
         """Cập nhật số lượng sản phẩm và ghi vào lịch sử nhập hàng."""
         product = self.get_product_by_id(product_id)
@@ -83,15 +74,26 @@ class ProductList:
             return True
         return False
 
-    def remove_product(self, product_id: str, admin_name: str):
-        """Xóa sản phẩm khỏi danh sách."""  #KHÔNG DÙNG
-        product = self.get_product_by_id(product_id)
-        if product:
-            self.products.remove(product)
-            self.save_products()
-            self.log_update("Xóa sản phẩm", product, admin_name)
-            return True
-        return False
+
+
+    #Thao tác manager
+    # def add_product(self, product: Product, admin_name: str):
+    #     """Thêm sản phẩm vào danh sách.""" #KHÔNG DÙNG
+    #     self.products.append(product)
+    #     self.save_products()
+    #     self.log_update("Thêm sản phẩm mới", product, admin_name)
+
+
+
+    # def remove_product(self, product_id: str, admin_name: str):
+    #     """Xóa sản phẩm khỏi danh sách."""  #KHÔNG DÙNG
+    #     product = self.get_product_by_id(product_id)
+    #     if product:
+    #         self.products.remove(product)
+    #         self.save_products()
+    #         self.log_update("Xóa sản phẩm", product, admin_name)
+    #         return True
+    #     return False
 
     def log_update(self, action: str, product: Product, admin_name: str, quantity: int = None):
         """Ghi lịch sử nhập hàng."""

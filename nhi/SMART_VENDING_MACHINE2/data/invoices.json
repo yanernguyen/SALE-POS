@@ -258,5 +258,131 @@
         "total": 20000.0,
         "tax": 2000.0,
         "total_after_tax": 22000.0
+    },
+    {
+        "cart": {
+            "SP_0002": {
+                "name": "Pepsi",
+                "qty": 2,
+                "unit_price": 12000,
+                "image": "image/pepsi.jpg"
+            }
+        },
+        "datetime": "2025-03-12 16:26:38",
+        "total": 24000.0,
+        "tax": 2400.0,
+        "total_after_tax": 26400.0
+    },
+    {
+        "cart": {
+            "SP_0002": {
+                "name": "Pepsi",
+                "qty": 1,
+                "unit_price": 12000,
+                "image": "image/pepsi.jpg"
+            }
+        },
+        "datetime": "2025-03-12 16:39:20",
+        "total": 12000.0,
+        "tax": 1200.0,
+        "total_after_tax": 13200.0
+    },
+    {
+        "cart": {
+            "SP_0002": {
+                "name": "Pepsi",
+                "qty": 1,
+                "unit_price": 12000,
+                "image": "image/pepsi.jpg"
+            }
+        },
+        "datetime": "2025-03-12 16:39:46",
+        "total": 12000.0,
+        "tax": 1200.0,
+        "total_after_tax": 13200.0
+    },
+    {
+        "cart": {
+            "SP_0002": {
+                "name": "Pepsi",
+                "qty": 1,
+                "unit_price": 12000,
+                "image": "image/pepsi.jpg"
+            }
+        },
+        "datetime": "2025-03-12 16:40:06",
+        "total": 12000.0,
+        "tax": 1200.0,
+        "total_after_tax": 13200.0
+    },
+    {
+        "cart": {
+            "SP_0002": {
+                "name": "Pepsi",
+                "qty": 1,
+                "unit_price": 12000,
+                "image": "image/pepsi.jpg"
+            }
+        },
+        "datetime": "2025-03-12 16:40:14",
+        "total": 12000.0,
+        "tax": 1200.0,
+        "total_after_tax": 13200.0
+    },
+    {
+        "cart": {
+            "SP_0002": {
+                "name": "Pepsi",
+                "qty": 1,
+                "unit_price": 12000,
+                "image": "image/pepsi.jpg"
+            }
+        },
+        "datetime": "2025-03-12 16:40:19",
+        "total": 12000.0,
+        "tax": 1200.0,
+        "total_after_tax": 13200.0
+    },
+    {
+        "cart": {
+            "SP_0002": {
+                "name": "Pepsi",
+                "qty": 2,
+                "unit_price": 12000,
+                "image": "image/pepsi.jpg"
+            }
+        },
+        "datetime": "2025-03-12 16:42:59",
+        "total": 24000.0,
+        "tax": 2400.0,
+        "total_after_tax": 26400.0
+    },
+    {
+        "cart": {
+            "SP_0002": {
+                "name": "Pepsi",
+                "qty": 1,
+                "unit_price": 12000,
+                "image": "image/pepsi.jpg"
+            }
+        },
+        "datetime": "2025-03-12 16:44:11",
+        "total": 12000.0,
+        "tax": 1200.0,
+        "total_after_tax": 13200.0
+    },
+    {
+        "cart": {
+            "SP_0002": {
+                "name": "Pepsi",
+                "qty": 1,
+                "unit_price": 12000,
+                "image": "image/pepsi.jpg"
+            }
+        },
+        "datetime": "2025-03-12 16:59:11",
+        "total": 12000.0,
+        "tax": 1200.0,
+        "total_after_tax": 13200.0
     }
 ]

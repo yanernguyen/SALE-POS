@@ -19,6 +19,10 @@ class Cart:
         if not product:
             return False  # Không tìm thấy sản phẩm
 
+        current_quantity = self.cart[product_id]['qty'] if product_id in self.cart else 0
+        if current_quantity + quantity > product.stock:
+            return False
+
         if product.stock >= quantity:  # Kiểm tra số lượng tồn kho
             if product.id not in self.cart:
                 self.cart[product.id] = {
@@ -31,7 +35,7 @@ class Cart:
                 self.cart[product.id]['qty'] += quantity
 
             product.stock -= quantity  # Cập nhật số lượng tồn kho
-            self.product_list.save_products()  # Lưu thay đổi vào file
+            # self.product_list.save_products()  # Lưu thay đổi vào file
             return True
 
         return False  # Không đủ hàng để thêm vào giỏ

@@ -46,5 +46,37 @@
         "product_id": "SP_0002",
         "product_name": "Pepsi",
         "quantity": 5
+    },
+    {
+        "time": "2025-03-12 16:07:35",
+        "admin": "admin1",
+        "action": "Cập nhật số lượng",
+        "product_id": "SP_0002",
+        "product_name": "Pepsi",
+        "quantity": 5
+    },
+    {
+        "time": "2025-03-12 16:39:03",
+        "admin": "admin1",
+        "action": "Cập nhật số lượng",
+        "product_id": "SP_0002",
+        "product_name": "Pepsi",
+        "quantity": 5
+    },
+    {
+        "time": "2025-03-12 16:39:08",
+        "admin": "admin1",
+        "action": "Cập nhật số lượng",
+        "product_id": "SP_0002",
+        "product_name": "Pepsi",
+        "quantity": 5
+    },
+    {
+        "time": "2025-03-12 16:39:08",
+        "admin": "admin1",
+        "action": "Cập nhật số lượng",
+        "product_id": "SP_0002",
+        "product_name": "Pepsi",
+        "quantity": 5
     }
 ]
