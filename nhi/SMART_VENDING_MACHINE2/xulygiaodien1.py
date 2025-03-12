@@ -199,13 +199,15 @@ class Ui(QtWidgets.QMainWindow):
         QMessageBox.information(self, "Success", f"Sản phẩm '{product_name}' đã được xóa khỏi giỏ hàng.")
 
     def checkout(self):
-        total = self.cart.checkout()
+        total, tax, total_after_tax = self.cart.checkout()
 
         if total == -1:
             QMessageBox.warning(self, "Error", "Giỏ hàng đang trống.")
         else:
-            invoice = Invoice(self.cart.get_cart(), total)  # Tạo hóa đơn mới
+            invoice = Invoice(self.cart.get_cart(), total,tax, total_after_tax)  # Tạo hóa đơn mới
+
             invoice.save_to_json()  # Lưu vào file JSON
+            invoice.generate_invoice()
 
             for item in self.cart.to_dict():
                 success = self.productlist.reduce_stock(item['product_id'], item['qty'])
@@ -214,8 +216,8 @@ class Ui(QtWidgets.QMainWindow):
 
             self.load_products()
             self.cart.clear()
-            self.label_total.setText(f" {invoice.total:,0f}đ")
-            QMessageBox.information(self, "Checkout", f"Tổng tiền: {invoice.total:,}đ\nThanh toán thành công!")
+            self.label_total.setText(f" {invoice.total:,.0f}đ")
+            QMessageBox.information(self, "Checkout", f"Tổng tiền: {invoice.total:.0f}đ\n Tien thue: {invoice.tax:.0f}\n Tong tien sau thue: {invoice.total_after_tax:.0f} \nThanh toán thành công!")
 
             self.update_cart_table()  # Cập nhật lại giao diện giỏ hàng
 

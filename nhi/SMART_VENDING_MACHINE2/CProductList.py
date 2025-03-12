@@ -1,5 +1,6 @@
 from Product import *
 from typing import List, Optional
+from datetime import datetime
 
 class ProductList:
     def __init__(self):
@@ -61,3 +62,54 @@ class ProductList:
             else:
                 return False  # Không đủ hàng trong kho
         return None
+
+
+
+
+    #Thao tác manager
+    def add_product(self, product: Product, admin_name: str):
+        """Thêm sản phẩm vào danh sách.""" #KHÔNG DÙNG
+        self.products.append(product)
+        self.save_products()
+        self.log_update("Thêm sản phẩm mới", product, admin_name)
+
+    def update_product_stock(self, product_id: str, quantity: int, admin_name: str):
+        """Cập nhật số lượng sản phẩm và ghi vào lịch sử nhập hàng."""
+        product = self.get_product_by_id(product_id)
+        if product:
+            product.stock += quantity
+            self.save_products()
+            self.log_update("Cập nhật số lượng", product, admin_name, quantity)
+            return True
+        return False
+
+    def remove_product(self, product_id: str, admin_name: str):
+        """Xóa sản phẩm khỏi danh sách."""  #KHÔNG DÙNG
+        product = self.get_product_by_id(product_id)
+        if product:
+            self.products.remove(product)
+            self.save_products()
+            self.log_update("Xóa sản phẩm", product, admin_name)
+            return True
+        return False
+
+    def log_update(self, action: str, product: Product, admin_name: str, quantity: int = None):
+        """Ghi lịch sử nhập hàng."""
+        log_entry = {
+            "time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "admin": admin_name,
+            "action": action,
+            "product_id": product.id,
+            "product_name": product.name,
+            "quantity": quantity if quantity is not None else "-",
+        }
+        try:
+            with open("data/history.json", "r",encoding="utf-8") as file:
+                history = json.load(file)
+        except (FileNotFoundError, json.JSONDecodeError):
+            history = []
+
+        history.append(log_entry)
+
+        with open("data/history.json", "w",encoding="utf-8") as file:
+            json.dump(history, file,ensure_ascii=False, indent=4)

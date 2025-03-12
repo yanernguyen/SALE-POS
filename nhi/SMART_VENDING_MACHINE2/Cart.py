@@ -9,6 +9,7 @@ class Cart:
     def __init__(self):
         self.cart = {}  # {product_id: {'qty': int, 'price': float}}
         self.product_list = ProductList()
+        TAX_RATE = 0.1
 
     def get_cart(self):
         return self.cart
@@ -61,7 +62,9 @@ class Cart:
         total = 0.0
         for item in self.cart.values():
             total += item['unit_price'] * item['qty']
-        return total
+            tax = total* 0.1
+            total_after_tax = total + tax
+        return total, tax, total_after_tax
 
     def to_dict(self) -> list:
         return [
@@ -111,12 +114,13 @@ class Cart:
     def checkout(self) -> float: #Nằm trong giao diện
         if not self.cart.items:
             return 0  # Giỏ hàng trống, không thực hiện thanh toán
-        total = self.get_total()  # Tính tổng tiền
+        total, tax, total_after_tax = self.get_total()  # Tính tổng tiền
         if total > 0:
             # Lưu thông tin giỏ hàng vào file cart.json
             self.save_cart(total)
+            self.save_cart(total_after_tax)
             # Xóa giỏ hàng sau khi thanh toán
-            return total
+            return total, tax, total_after_tax
         return 0
 
     def save_cart(self, total: float):
