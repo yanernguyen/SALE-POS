@@ -1664,5 +1664,29 @@
             }
         ],
         "total": 13200.0
+    },
+    {
+        "items": [
+            {
+                "product_id": "SP_0002",
+                "name": "Pepsi",
+                "qty": 2,
+                "unit_price": 12000,
+                "image": "image/pepsi.jpg"
+            }
+        ],
+        "total": 24000.0
+    },
+    {
+        "items": [
+            {
+                "product_id": "SP_0002",
+                "name": "Pepsi",
+                "qty": 2,
+                "unit_price": 12000,
+                "image": "image/pepsi.jpg"
+            }
+        ],
+        "total": 26400.0
     }
 ]

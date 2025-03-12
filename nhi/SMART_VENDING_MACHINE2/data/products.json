@@ -165,7 +165,7 @@
         "price": 25000,
         "stock": 10,
         "category": "Snacks",
-        "image": "image/nutsmix.jpg"
+            "image": "image/nuts_mix.jpg"
     },
     {
         "id": "SP_0022",
@@ -173,7 +173,7 @@
         "price": 30000,
         "stock": 8,
         "category": "Snacks",
-        "image": "image/granolabar.jpg"
+        "image": "image/granola_bar.jpg"
     },
     {
         "id": "SP_0023",
@@ -181,7 +181,7 @@
         "price": 50000,
         "stock": 6,
         "category": "Personal Cares",
-        "image": "image/bodylotion.jpg"
+        "image": "image/body_lotion.jpg"
     },
     {
         "id": "SP_0024",
@@ -189,7 +189,7 @@
         "price": 45000,
         "stock": 9,
         "category": "Personal Cares",
-        "image": "image/facewash.jpg"
+        "image": "image/face_wash.jpg"
     },
     {
         "id": "SP_0025",
@@ -197,6 +197,6 @@
         "price": 55000,
         "stock": 7,
         "category": "Personal Cares",
-        "image": "image/conditioner.jpg"
+        "image": "image/hair_conditioner.jpg"
     }
 ]

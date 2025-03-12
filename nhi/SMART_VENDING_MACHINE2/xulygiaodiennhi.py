@@ -41,12 +41,19 @@ class Ui(QtWidgets.QMainWindow):
         self.pushButton_ADD.clicked.connect(self.add_to_cart)
         self.pushButton_REMOVE.clicked.connect(self.remove_from_cart)
         self.pushButton_CHECKOUT.clicked.connect(self.checkout)
+        self.pushButton_Setting.clicked.connect(self.open_login_window)
 
         # Kết nối các nút danh mục với filter_product
         self.pushButton_Beverages.clicked.connect(lambda: self.filter_product("Beverages"))
         self.pushButton_FastFood.clicked.connect(lambda: self.filter_product("Fast Food"))
         self.pushButton_Snacks.clicked.connect(lambda: self.filter_product("Snacks"))
         self.pushButton_PersonalCares.clicked.connect(lambda: self.filter_product("Personal Cares"))
+
+    def open_login_window(self):
+        self.login_window = LoginWindow()
+        self.login_window.show()
+
+
 
     def setup_products(self):
         # Thiết lập giao diện sản phẩm ban đầu
@@ -289,6 +296,12 @@ class Ui(QtWidgets.QMainWindow):
 
         self.scroll_widget.adjustSize()  # Điều chỉnh kích thước widget cuộn
         self.scroll_area.verticalScrollBar().setValue
+
+class LoginWindow(QtWidgets.QMainWindow):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('login.ui', self)  # Load file login.ui
+        self.setWindowTitle("Đăng nhập")
 
 
 app = QtWidgets.QApplication(sys.argv)
