@@ -217,7 +217,11 @@ class Ui(QtWidgets.QMainWindow):
             self.load_products()
             self.cart.clear()
             self.label_total.setText(f" {invoice.total:,.0f}đ")
-            QMessageBox.information(self, "Checkout", f"Tổng tiền: {invoice.total:.0f}đ\n Tien thue: {invoice.tax:.0f}\n Tong tien sau thue: {invoice.total_after_tax:.0f} \nThanh toán thành công!")
+            receipt = invoice.generate_receipt()
+            QMessageBox.information(self, "Checkout", f"Tổng tiền: {invoice.total:.0f}đ\n  "
+                                                      f"Tien thue: {invoice.tax:.0f}\n "
+                                                      f"Tong tien sau thue: {invoice.total_after_tax:.0f} \n"
+                                                      f"Thanh toán thành công!")
 
             self.update_cart_table()  # Cập nhật lại giao diện giỏ hàng
 

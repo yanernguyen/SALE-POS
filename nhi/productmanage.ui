@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>572</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Quản lý sản phẩm</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+        /* Màu nền chính */
+        QMainWindow {
+          background-color: #f0f0f0;
+        }
+
+        /* Tiêu đề cửa sổ */
+        QMainWindow::title {
+          font-size: 18px;
+          font-weight: bold;
+          color: #333333;
+        }
+
+        /* Bảng sản phẩm */
+        QTableWidget {
+          background-color: #ffffff;
+          border: 1px solid #cccccc;
+          border-radius: 8px;
+          font-size: 14px;
+        }
+
+        QTableWidget::item {
+          padding: 8px;
+        }
+
+        QHeaderView::section {
+          background-color: #0078d7;
+          color: #ffffff;
+          padding: 8px;
+          font-size: 14px;
+          font-weight: bold;
+          border: none;
+        }
+
+        /* Ô nhập liệu */
+        QLineEdit {
+          background-color: #ffffff;
+          border: 1px solid #cccccc;
+          border-radius: 4px;
+          padding: 8px;
+          font-size: 14px;
+        }
+
+        QLineEdit:focus {
+          border: 1px solid #0078d7;
+        }
+
+        /* Nút cập nhật */
+        QPushButton {
+          background-color: #0078d7;
+          color: #ffffff;
+          border: none;
+          border-radius: 4px;
+          padding: 10px 20px;
+          font-size: 14px;
+          font-weight: bold;
+        }
+
+        QPushButton:hover {
+          background-color: #005bb5;
+        }
+
+        QPushButton:pressed {
+          background-color: #004080;
+        }
+      </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTableWidget" name="table">
+      <property name="alternatingRowColors">
+       <bool>false</bool>
+      </property>
+      <property name="rowCount">
+       <number>0</number>
+      </property>
+      <property name="columnCount">
+       <number>3</number>
+      </property>
+      <column>
+       <property name="text">
+        <string>Mã sản phẩm </string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Tên sản phẩm</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Số lượng</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="input_id">
+      <property name="placeholderText">
+       <string>Nhập mã sản phẩm</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="input_quantity">
+      <property name="placeholderText">
+       <string>Nhập số lượng</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btn_update">
+      <property name="text">
+       <string>Cập nhật số lượng</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

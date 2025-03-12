@@ -165,7 +165,7 @@
         "price": 25000,
         "stock": 10,
         "category": "Snacks",
-            "image": "image/nuts_mix.jpg"
+        "image": "image/nuts_mix.jpg"
     },
     {
         "id": "SP_0022",

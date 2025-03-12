@@ -398,5 +398,193 @@
         "total": 24000.0,
         "tax": 2400.0,
         "total_after_tax": 26400.0
+    },
+    {
+        "cart": {
+            "SP_0003": {
+                "name": "Aquafina",
+                "qty": 1,
+                "unit_price": 8000,
+                "image": "image/aquafina.jpg"
+            }
+        },
+        "datetime": "2025-03-12 19:17:05",
+        "total": 8000.0,
+        "tax": 800.0,
+        "total_after_tax": 8800.0
+    },
+    {
+        "cart": {
+            "SP_0003": {
+                "name": "Aquafina",
+                "qty": 1,
+                "unit_price": 8000,
+                "image": "image/aquafina.jpg"
+            },
+            "SP_0006": {
+                "name": "Cafe",
+                "qty": 1,
+                "unit_price": 20000,
+                "image": "image/cafe.jpg"
+            }
+        },
+        "datetime": "2025-03-12 19:27:20",
+        "total": 28000.0,
+        "tax": 2800.0,
+        "total_after_tax": 30800.0
+    },
+    {
+        "cart": {
+            "SP_0006": {
+                "name": "Cafe",
+                "qty": 1,
+                "unit_price": 20000,
+                "image": "image/cafe.jpg"
+            }
+        },
+        "datetime": "2025-03-12 19:28:36",
+        "total": 20000.0,
+        "tax": 2000.0,
+        "total_after_tax": 22000.0
+    },
+    {
+        "cart": {
+            "SP_0001": {
+                "name": "CocaCola",
+                "qty": 1,
+                "unit_price": 10000,
+                "image": "image/cocacola.jpg"
+            }
+        },
+        "datetime": "2025-03-12 19:29:38",
+        "total": 10000.0,
+        "tax": 1000.0,
+        "total_after_tax": 11000.0
+    },
+    {
+        "cart": {
+            "SP_0003": {
+                "name": "Aquafina",
+                "qty": 1,
+                "unit_price": 8000,
+                "image": "image/aquafina.jpg"
+            },
+            "SP_0002": {
+                "name": "Pepsi",
+                "qty": 1,
+                "unit_price": 12000,
+                "image": "image/pepsi.jpg"
+            },
+            "SP_0006": {
+                "name": "Cafe",
+                "qty": 1,
+                "unit_price": 20000,
+                "image": "image/cafe.jpg"
+            },
+            "SP_0005": {
+                "name": "Sprite",
+                "qty": 1,
+                "unit_price": 11000,
+                "image": "image/sprite.jpg"
+            }
+        },
+        "datetime": "2025-03-12 19:32:59",
+        "total": 51000.0,
+        "tax": 5100.0,
+        "total_after_tax": 56100.0
+    },
+    {
+        "cart": {
+            "SP_0006": {
+                "name": "Cafe",
+                "qty": 1,
+                "unit_price": 20000,
+                "image": "image/cafe.jpg"
+            },
+            "SP_0005": {
+                "name": "Sprite",
+                "qty": 1,
+                "unit_price": 11000,
+                "image": "image/sprite.jpg"
+            }
+        },
+        "datetime": "2025-03-12 19:36:10",
+        "total": 31000.0,
+        "tax": 3100.0,
+        "total_after_tax": 34100.0
+    },
+    {
+        "cart": {
+            "SP_0004": {
+                "name": "Red Bull",
+                "qty": 1,
+                "unit_price": 15000,
+                "image": "image/redbull.jpg"
+            },
+            "SP_0005": {
+                "name": "Sprite",
+                "qty": 1,
+                "unit_price": 11000,
+                "image": "image/sprite.jpg"
+            }
+        },
+        "datetime": "2025-03-12 19:36:32",
+        "total": 26000.0,
+        "tax": 2600.0,
+        "total_after_tax": 28600.0
+    },
+    {
+        "cart": {
+            "SP_0003": {
+                "name": "Aquafina",
+                "qty": 1,
+                "unit_price": 8000,
+                "image": "image/aquafina.jpg"
+            },
+            "SP_0006": {
+                "name": "Cafe",
+                "qty": 1,
+                "unit_price": 20000,
+                "image": "image/cafe.jpg"
+            }
+        },
+        "datetime": "2025-03-12 19:46:50",
+        "total": 28000.0,
+        "tax": 2800.0,
+        "total_after_tax": 30800.0
+    },
+    {
+        "cart": {
+            "SP_0006": {
+                "name": "Cafe",
+                "qty": 1,
+                "unit_price": 20000,
+                "image": "image/cafe.jpg"
+            },
+            "SP_0005": {
+                "name": "Sprite",
+                "qty": 1,
+                "unit_price": 11000,
+                "image": "image/sprite.jpg"
+            }
+        },
+        "datetime": "2025-03-12 19:47:12",
+        "total": 31000.0,
+        "tax": 3100.0,
+        "total_after_tax": 34100.0
+    },
+    {
+        "cart": {
+            "SP_0006": {
+                "name": "Cafe",
+                "qty": 1,
+                "unit_price": 20000,
+                "image": "image/cafe.jpg"
+            }
+        },
+        "datetime": "2025-03-12 19:47:56",
+        "total": 20000.0,
+        "tax": 2000.0,
+        "total_after_tax": 22000.0
     }
 ]

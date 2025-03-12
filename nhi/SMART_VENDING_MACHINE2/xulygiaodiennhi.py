@@ -42,6 +42,7 @@ class Ui(QtWidgets.QMainWindow):
         self.pushButton_REMOVE.clicked.connect(self.remove_from_cart)
         self.pushButton_CHECKOUT.clicked.connect(self.checkout)
         self.pushButton_Setting.clicked.connect(self.open_login_window)
+        self.pushButton_ADD_2.clicked.connect(self.cancle)
 
         # Kết nối các nút danh mục với filter_product
         self.pushButton_Beverages.clicked.connect(lambda: self.filter_product("Beverages"))
@@ -146,12 +147,22 @@ class Ui(QtWidgets.QMainWindow):
 
         # Xóa danh sách sản phẩm được chọn sau khi thêm vào giỏ hàng
         self.selected_frames.clear()
+        self.update_total_price()
         # Làm mới lại danh sách sản phẩm để cập nhật stock
         self.filter_product(self.current_category)
 
+    def update_total_price(self):
+        sub_total, tax, total  = self.cart.get_total()  # Chỉ lấy tổng tiền, bỏ qua thuế
+        self.label_subtotal.setText(f"{sub_total:,.0f}đ")
+        self.label_tax.setText(f"{tax:,.0f}đ")
+        self.label_total.setText(f"{total:,.0f}đ")# Cập nhật giao diện
+
+
     def update_cart_table(self):
         self.cart_table.setRowCount(0) # Xóa tất cả các dòng hiện tại
+        self.label_subtotal.clear()
         self.label_total.clear()
+        self.label_tax.clear()
         for row, item in enumerate(self.cart.to_dict()):  # Duyệt qua từng mục trong giỏ hàng
             product = self.productlist.get_product_by_id(item['product_id'])  # Tìm sản phẩm bằng product_id
             if product:
@@ -160,8 +171,9 @@ class Ui(QtWidgets.QMainWindow):
                 self.cart_table.setItem(row, 0, QTableWidgetItem(product.name))
                 # Số lượng
                 self.cart_table.setItem(row, 1, QTableWidgetItem(str(item['qty'])))  # Chuyển số lượng thành chuỗi
+                product_total = item['qty'] * product.price
                 # Giá
-                self.cart_table.setItem(row, 2, QTableWidgetItem(f"{product.price:,}đ"))
+                self.cart_table.setItem(row, 2, QTableWidgetItem(f"{product_total:,.0f}đ"))
         self.cart_table.verticalHeader().setVisible(False)
 
     def search_product(self):
@@ -264,10 +276,17 @@ class Ui(QtWidgets.QMainWindow):
             self.productlist.load_products()
             self.load_products()
             self.cart.clear()
-            self.label_total.setText(f" {invoice.total:,.0f}đ")
+            self.label_subtotal.setText(f" {invoice.total:,.0f}đ")
+            self.label_tax.setText(f" {invoice.tax:,.0f}đ")
+            self.label_total.setText(f" {invoice.total_after_tax:,.0f}đ")
             QMessageBox.information(self, "Checkout", f"Tổng tiền: {invoice.total:.0f}đ\n Tien thue: {invoice.tax:.0f}\n Tong tien sau thue: {invoice.total_after_tax:.0f} \nThanh toán thành công!")
 
             self.update_cart_table()  # Cập nhật lại giao diện giỏ hàng
+
+    def cancle(self):
+        self.cart.clear()
+        self.update_cart_table()
+
 
     def filter_product(self, category="Beverages"):
         # Cập nhật danh mục hiện tại
@@ -304,6 +323,6 @@ class LoginWindow(QtWidgets.QMainWindow):
         self.setWindowTitle("Đăng nhập")
 
 
-app = QtWidgets.QApplication(sys.argv)
-window = Ui()
-app.exec()
+        app = QtWidgets.QApplication(sys.argv)
+        window = Ui()
+        app.exec()
