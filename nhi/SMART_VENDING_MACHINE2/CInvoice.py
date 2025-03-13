@@ -83,28 +83,28 @@ class Invoice:
         c.save()
         print(f"✅ Hóa đơn đã được lưu tại {file_name}")
 
-    def generate_receipt(self):
-        receipt_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        receipt_id = f"SM-{int(time.time())}"
-        invoice_data = self.to_dict()
-
-        # Tạo nội dung hóa đơn
-        receipt_content = f"===== SMART MART RECEIPT =====\n"
-        receipt_content += f"Receipt ID: {receipt_id}\n"
-        receipt_content += f"Date: {receipt_time}\n"
-        receipt_content += f"---------------------------\n"
-
-        for item in invoice_data['cart'].values():
-            price = item['price'] * item['quantity']
-            receipt_content += f"{item['name']} x{item['quantity']}: {price:,.0f}đ\n"
-
-
-        receipt_content += f"---------------------------\n"
-        receipt_content += f"Total: {invoice_data['total']:,.0f}đ\n"
-        receipt_content += f"Thank you for shopping!\n"
-
-        # Lưu hóa đơn vào file hoặc hiển thị
-        self.show_receipt(receipt_content)
-        self.save_receipt_to_history(receipt_id, receipt_content, total)
-
-        return receipt_content
+    # def generate_receipt(self):
+    #     receipt_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    #     receipt_id = f"SM-{int(time.time())}"
+    #     invoice_data = self.to_dict()
+    #
+    #     # Tạo nội dung hóa đơn
+    #     receipt_content = f"===== SMART MART RECEIPT =====\n"
+    #     receipt_content += f"Receipt ID: {receipt_id}\n"
+    #     receipt_content += f"Date: {receipt_time}\n"
+    #     receipt_content += f"---------------------------\n"
+    #
+    #     for item in invoice_data['cart'].values():
+    #         price = item['price'] * item['quantity']
+    #         receipt_content += f"{item['name']} x{item['quantity']}: {price:,.0f}đ\n"
+    #
+    #
+    #     receipt_content += f"---------------------------\n"
+    #     receipt_content += f"Total: {invoice_data['total']:,.0f}đ\n"
+    #     receipt_content += f"Thank you for shopping!\n"
+    #
+    #     # Lưu hóa đơn vào file hoặc hiển thị
+    #     self.show_receipt(receipt_content)
+    #     self.save_receipt_to_history(receipt_id, receipt_content, total)
+    #
+    #     return receipt_content

@@ -7,6 +7,7 @@ import sys
 from CInvoice import Invoice
 from CProductList import ProductList
 from Cart import Cart
+from InvoiceDialog import InvoiceDialog
 
 
 class Ui(QtWidgets.QMainWindow):
@@ -266,20 +267,21 @@ class Ui(QtWidgets.QMainWindow):
             invoice = Invoice(self.cart.get_cart(), total,tax, total_after_tax)  # Tạo hóa đơn mới
 
             invoice.save_to_json()  # Lưu vào file JSON
-            invoice.generate_invoice()
 
             for item in self.cart.to_dict():
                 success = self.productlist.reduce_stock(item['product_id'], item['qty'])
                 if success is False:
                     QMessageBox.warning(self, "Lỗi", f"Sản phẩm {item['product_id']} không đủ hàng.")
 
-            self.productlist.load_products()
+            self.productlist.save_products()
             self.load_products()
+            dialog = InvoiceDialog(invoice, self)
+            dialog.exec()
             self.cart.clear()
             self.label_subtotal.setText(f" {invoice.total:,.0f}đ")
             self.label_tax.setText(f" {invoice.tax:,.0f}đ")
             self.label_total.setText(f" {invoice.total_after_tax:,.0f}đ")
-            QMessageBox.information(self, "Checkout", f"Tổng tiền: {invoice.total:.0f}đ\n Tien thue: {invoice.tax:.0f}\n Tong tien sau thue: {invoice.total_after_tax:.0f} \nThanh toán thành công!")
+            # QMessageBox.information(self, "Checkout", f"Tổng tiền: {invoice.total:.0f}đ\n Tien thue: {invoice.tax:.0f}\n Tong tien sau thue: {invoice.total_after_tax:.0f} \nThanh toán thành công!")
 
             self.update_cart_table()  # Cập nhật lại giao diện giỏ hàng
 
@@ -323,6 +325,6 @@ class LoginWindow(QtWidgets.QMainWindow):
         self.setWindowTitle("Đăng nhập")
 
 
-        app = QtWidgets.QApplication(sys.argv)
-        window = Ui()
-        app.exec()
+app = QtWidgets.QApplication(sys.argv)
+window = Ui()
+app.exec()

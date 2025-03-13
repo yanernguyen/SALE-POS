@@ -11,7 +11,7 @@
         "id": "SP_0002",
         "name": "Pepsi",
         "price": 12000,
-        "stock": 6,
+        "stock": 4,
         "category": "Beverages",
         "image": "image/pepsi.jpg"
     },
@@ -27,7 +27,7 @@
         "id": "SP_0004",
         "name": "Red Bull",
         "price": 15000,
-        "stock": 5,
+        "stock": 3,
         "category": "Beverages",
         "image": "image/redbull.jpg"
     },
