@@ -1,9 +1,7 @@
 from PyQt6 import QtWidgets, uic
 from PyQt6.QtWidgets import QMessageBox, QLabel, QFrame, QPushButton, QVBoxLayout, QTableWidgetItem
 from PyQt6.QtGui import QPixmap
-from PyQt6.QtCore import Qt
 import sys
-  # Import class quản lý sản phẩm và giỏ hàng
 from CInvoice import Invoice
 from CProductList import ProductList
 from Cart import Cart

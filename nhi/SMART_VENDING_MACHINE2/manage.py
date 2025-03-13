@@ -9,7 +9,6 @@ class ProductManager(QMainWindow):
 
         self.table = self.findChild(QTableWidget, "tableWidget")  # Lấy bảng theo objectName
         self.table.setColumnCount(6)  # ID, Name, Category, Price, Quantity, Actions
-
         # Thêm dữ liệu
         data = [
             (1, "Product 1", "Category A", "10.99", "5"),
@@ -39,8 +38,6 @@ class ProductManager(QMainWindow):
             QPushButton {
                 background-color: #4CAF50;
                 color: white;
-                font-size: 14px;
-                border-radius: 5px;
             }
             QPushButton:hover {
                 background-color: #45a049;
@@ -55,8 +52,6 @@ class ProductManager(QMainWindow):
             QPushButton {
                 background-color: #F44336;
                 color: white;
-                font-size: 14px;
-                border-radius: 5px;
             }
             QPushButton:hover {
                 background-color: #D32F2F;

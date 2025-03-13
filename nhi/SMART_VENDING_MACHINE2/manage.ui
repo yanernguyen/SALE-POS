@@ -6,8 +6,6 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1141</width>
-    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,16 +15,13 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>460</x>
       <y>20</y>
-      <width>281</width>
       <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Sitka Small Semibold</family>
-      <pointsize>12</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -40,24 +35,14 @@
      <rect>
       <x>20</x>
       <y>90</y>
-      <width>1101</width>
-      <height>441</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Sitka Text Semibold</family>
-      <weight>75</weight>
-      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">
     QHeaderView::section { 
-        background-color: #F0F0F0;
-font-weight: bold;
-    }
-</string>
     </property>
     <property name="showGrid">
      <bool>true</bool>
@@ -69,10 +54,8 @@ font-weight: bold;
      <bool>true</bool>
     </property>
     <attribute name="horizontalHeaderDefaultSectionSize">
-     <number>184</number>
     </attribute>
     <attribute name="horizontalHeaderMinimumSectionSize">
-     <number>51</number>
     </attribute>
     <attribute name="verticalHeaderDefaultSectionSize">
      <number>51</number>
@@ -114,8 +97,6 @@ font-weight: bold;
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>550</y>
       <width>281</width>
       <height>41</height>
      </rect>
@@ -135,8 +116,6 @@ font-weight: bold;
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>600</y>
       <width>401</width>
       <height>41</height>
      </rect>
@@ -168,8 +147,6 @@ QLineEdit:focus {
    <widget class="QLineEdit" name="lineEdit_3">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>660</y>
       <width>401</width>
       <height>41</height>
      </rect>
@@ -198,8 +175,6 @@ QLineEdit:focus {
    <widget class="QLineEdit" name="lineEdit_4">
     <property name="geometry">
      <rect>
-      <x>730</x>
-      <y>660</y>
       <width>121</width>
       <height>41</height>
      </rect>
@@ -228,8 +203,6 @@ QLineEdit:focus {
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>610</y>
       <width>59</width>
       <height>17</height>
      </rect>
@@ -247,8 +220,6 @@ QLineEdit:focus {
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>660</y>
       <width>91</width>
       <height>41</height>
      </rect>
@@ -266,8 +237,6 @@ QLineEdit:focus {
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>610</y>
       <width>101</width>
       <height>20</height>
      </rect>
@@ -285,8 +254,6 @@ QLineEdit:focus {
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>660</y>
       <width>59</width>
       <height>31</height>
      </rect>
@@ -304,8 +271,6 @@ QLineEdit:focus {
    <widget class="QSpinBox" name="spinBox">
     <property name="geometry">
      <rect>
-      <x>730</x>
-      <y>600</y>
       <width>121</width>
       <height>41</height>
      </rect>
@@ -320,8 +285,6 @@ QLineEdit:focus {
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>900</x>
-      <y>600</y>
       <width>141</width>
       <height>41</height>
      </rect>
@@ -355,8 +318,6 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>900</x>
-      <y>660</y>
       <width>141</width>
       <height>41</height>
      </rect>
@@ -393,8 +354,6 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1141</width>
-     <height>27</height>
     </rect>
    </property>
   </widget>
