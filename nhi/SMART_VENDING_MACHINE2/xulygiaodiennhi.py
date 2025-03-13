@@ -331,7 +331,7 @@ class Ui(QtWidgets.QMainWindow):
 class LoginWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('login.ui', self)  # Load file login.ui
+        uic.loadUi('loginn.ui', self)  # Load file login.ui
         self.setWindowTitle("Đăng nhập")
 
 
