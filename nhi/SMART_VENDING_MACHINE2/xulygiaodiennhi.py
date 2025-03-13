@@ -1,10 +1,13 @@
 from PyQt6 import QtWidgets, uic
 from PyQt6.QtWidgets import QMessageBox, QLabel, QFrame, QPushButton, QVBoxLayout, QTableWidgetItem
 from PyQt6.QtGui import QPixmap
+from PyQt6.QtGui import QIcon
+from PyQt6.QtCore import QSize
 import sys
 from CInvoice import Invoice
 from CProductList import ProductList
 from Cart import Cart
+import os
 from InvoiceDialog import InvoiceDialog
 
 
@@ -26,6 +29,12 @@ class Ui(QtWidgets.QMainWindow):
         self.scroll_area.setWidgetResizable(True)  # Đảm bảo có thể cuộn
         # self.scroll_content2.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         self.scrollContent2.adjustSize()
+        self.pushButton_icon = self.findChild(QtWidgets.QPushButton, "pushButton_icon")
+        print(self.pushButton_icon)  # Kiểm tra xem có phải None không
+
+        icon = QIcon("image/icon.jpg")  # Đường dẫn tới file icon
+        self.pushButton_icon.setIcon(icon)
+        self.pushButton_icon.setIconSize(QSize(30, 30))
 
         self.scroll_area.widget().adjustSize()
         self.current_category = "Beverages"
@@ -40,8 +49,9 @@ class Ui(QtWidgets.QMainWindow):
         self.pushButton_ADD.clicked.connect(self.add_to_cart)
         self.pushButton_REMOVE.clicked.connect(self.remove_from_cart)
         self.pushButton_CHECKOUT.clicked.connect(self.checkout)
-        self.pushButton_Setting.clicked.connect(self.open_login_window)
+        self.pushButton_icon.clicked.connect(self.open_login_window)
         self.pushButton_ADD_2.clicked.connect(self.cancle)
+        self.pushButton_icon.clicked.connect(self.open_login_window)
 
         # Kết nối các nút danh mục với filter_product
         self.pushButton_Beverages.clicked.connect(lambda: self.filter_product("Beverages"))
@@ -52,6 +62,8 @@ class Ui(QtWidgets.QMainWindow):
     def open_login_window(self):
         self.login_window = LoginWindow()
         self.login_window.show()
+
+
 
 
 

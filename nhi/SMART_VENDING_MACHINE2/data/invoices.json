@@ -378,5 +378,25 @@
         "total": 27000.0,
         "tax": 2700.0,
         "total_after_tax": 29700.0
+    },
+    {
+        "cart": {
+            "SP_0006": {
+                "name": "Cafe",
+                "qty": 1,
+                "unit_price": 20000,
+                "image": "image/cafe.jpg"
+            },
+            "SP_0005": {
+                "name": "Sprite",
+                "qty": 1,
+                "unit_price": 11000,
+                "image": "image/sprite.jpg"
+            }
+        },
+        "datetime": "2025-03-13 08:35:45",
+        "total": 31000.0,
+        "tax": 3100.0,
+        "total_after_tax": 34100.0
     }
 ]
