@@ -418,5 +418,33 @@
         "total": 31000.0,
         "tax": 3100.0,
         "total_after_tax": 34100.0
+    },
+    {
+        "cart": {
+            "SP_0012": {
+                "name": "Shampoo",
+                "qty": 1,
+                "unit_price": 40000,
+                "image": "image/shampoo.jpg"
+            }
+        },
+        "datetime": "2025-03-13 15:34:49",
+        "total": 40000.0,
+        "tax": 4000.0,
+        "total_after_tax": 44000.0
+    },
+    {
+        "cart": {
+            "SP_0003": {
+                "name": "Aquafina",
+                "qty": 1,
+                "unit_price": 8000,
+                "image": "image/aquafina.jpg"
+            }
+        },
+        "datetime": "2025-03-13 15:38:08",
+        "total": 8000.0,
+        "tax": 800.0,
+        "total_after_tax": 8800.0
     }
 ]

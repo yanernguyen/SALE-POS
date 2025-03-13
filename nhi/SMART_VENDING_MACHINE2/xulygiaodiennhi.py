@@ -117,7 +117,7 @@ class Ui(QtWidgets.QMainWindow):
                 background-color: transparent;
                 border: 2px solid #AFE1AF;
                 color: black;
-                font-size: 14px;
+                font-size: 12px;
                 border-radius: 6px;
                 padding: 8px 15px;
             }

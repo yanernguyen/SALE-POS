@@ -16,6 +16,12 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
+  <property name="font">
+   <font>
+    <family>Sitka Small</family>
+    <pointsize>9</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -35,10 +41,16 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Sitka Small</family>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
     background-color: #AFE1AF; /* Màu xanh lá */
-    color: black; /* Màu chữ trắng */
+    color: 333333 ; /* Màu chữ trắng */
     border-radius: 5px; /* Bo góc */
     padding: 10px;
 }
@@ -125,10 +137,16 @@ QScrollBar::handle:vertical:hover {
         <height>41</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Sitka Small</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
     background-color: #AFE1AF; /* Màu xanh lá */
-    color: black; /* Màu chữ trắng */
+    color: 333333 ; /* Màu chữ trắng */
     border-radius: 5px; /* Bo góc */
     padding: 10px;
 }
@@ -149,10 +167,16 @@ QPushButton:hover {
         <height>41</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Sitka Small</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
     background-color: #AFE1AF; /* Màu xanh lá */
-    color: black; /* Màu chữ trắng */
+    color: 333333 ; /* Màu chữ trắng */
     border-radius: 5px; /* Bo góc */
     padding: 10px;
 }
@@ -173,10 +197,16 @@ QPushButton:hover {
         <height>41</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Sitka Small</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
     background-color: #AFE1AF; /* Màu xanh lá */
-    color: black; /* Màu chữ trắng */
+    color: 333333 ; /* Màu chữ trắng */
     border-radius: 5px; /* Bo góc */
     padding: 10px;
 }
@@ -197,10 +227,16 @@ QPushButton:hover {
         <height>41</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Sitka Small</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
     background-color: #AFE1AF; /* Màu xanh lá */
-    color: black; /* Màu chữ trắng */
+    color: 333333 ; /* Màu chữ trắng */
     border-radius: 5px; /* Bo góc */
     padding: 10px;
 }
@@ -347,6 +383,12 @@ QHeaderView::section {
           <height>41</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>Sitka Small</family>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">QPushButton {
     background-color: #4CAF50; /* Màu xanh lá */
@@ -381,6 +423,12 @@ QPushButton:pressed {
           <height>41</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>Sitka Small</family>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">QPushButton {
     background-color: #4CAF50; /* Màu xanh lá */
@@ -408,6 +456,12 @@ QPushButton:pressed {
           <width>439</width>
           <height>41</height>
          </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Sitka Small</family>
+          <pointsize>9</pointsize>
+         </font>
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton {
@@ -439,7 +493,8 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <pointsize>8</pointsize>
+          <family>Sitka Small</family>
+          <pointsize>9</pointsize>
          </font>
         </property>
         <property name="styleSheet">

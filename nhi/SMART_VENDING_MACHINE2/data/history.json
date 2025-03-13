@@ -102,5 +102,53 @@
         "product_id": "SP_0001",
         "product_name": "CocaCola",
         "quantity": 5
+    },
+    {
+        "time": "2025-03-13 15:34:25",
+        "admin": "admin1",
+        "action": "Cập nhật số lượng",
+        "product_id": "SP_0002",
+        "product_name": "Pepsi",
+        "quantity": 5
+    },
+    {
+        "time": "2025-03-13 15:36:32",
+        "admin": "admin1",
+        "action": "Cập nhật số lượng",
+        "product_id": "SP_0001",
+        "product_name": "CocaCola",
+        "quantity": 1
+    },
+    {
+        "time": "2025-03-13 15:39:36",
+        "admin": "admin1",
+        "action": "Cập nhật số lượng",
+        "product_id": "SP_0002",
+        "product_name": "Pepsi",
+        "quantity": 5
+    },
+    {
+        "time": "2025-03-13 15:39:47",
+        "admin": "admin1",
+        "action": "Cập nhật số lượng",
+        "product_id": "SP_0002",
+        "product_name": "Pepsi",
+        "quantity": 5
+    },
+    {
+        "time": "2025-03-13 15:42:13",
+        "admin": "admin1",
+        "action": "Cập nhật số lượng",
+        "product_id": "SP_0002",
+        "product_name": "Pepsi",
+        "quantity": 5
+    },
+    {
+        "time": "2025-03-13 15:47:19",
+        "admin": "admin1",
+        "action": "Cập nhật số lượng",
+        "product_id": "SP_0002",
+        "product_name": "Pepsi",
+        "quantity": 5
     }
 ]

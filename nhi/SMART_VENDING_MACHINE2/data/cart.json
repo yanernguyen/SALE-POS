@@ -3276,5 +3276,53 @@
             }
         ],
         "total": 34100.0
+    },
+    {
+        "items": [
+            {
+                "product_id": "SP_0012",
+                "name": "Shampoo",
+                "qty": 1,
+                "unit_price": 40000,
+                "image": "image/shampoo.jpg"
+            }
+        ],
+        "total": 40000.0
+    },
+    {
+        "items": [
+            {
+                "product_id": "SP_0012",
+                "name": "Shampoo",
+                "qty": 1,
+                "unit_price": 40000,
+                "image": "image/shampoo.jpg"
+            }
+        ],
+        "total": 44000.0
+    },
+    {
+        "items": [
+            {
+                "product_id": "SP_0003",
+                "name": "Aquafina",
+                "qty": 1,
+                "unit_price": 8000,
+                "image": "image/aquafina.jpg"
+            }
+        ],
+        "total": 8000.0
+    },
+    {
+        "items": [
+            {
+                "product_id": "SP_0003",
+                "name": "Aquafina",
+                "qty": 1,
+                "unit_price": 8000,
+                "image": "image/aquafina.jpg"
+            }
+        ],
+        "total": 8800.0
     }
 ]

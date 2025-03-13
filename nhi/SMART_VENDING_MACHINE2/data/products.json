@@ -11,7 +11,7 @@
         "id": "SP_0002",
         "name": "Pepsi",
         "price": 12000,
-        "stock": 9,
+        "stock": 34,
         "category": "Beverages",
         "image": "image/pepsi.jpg"
     },
@@ -19,7 +19,7 @@
         "id": "SP_0003",
         "name": "Aquafina",
         "price": 8000,
-        "stock": 1,
+        "stock": 0,
         "category": "Beverages",
         "image": "image/aquafina.jpg"
     },
@@ -91,7 +91,7 @@
         "id": "SP_0012",
         "name": "Shampoo",
         "price": 40000,
-        "stock": 5,
+        "stock": 4,
         "category": "Personal Cares",
         "image": "image/shampoo.jpg"
     },
