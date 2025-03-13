@@ -3,7 +3,7 @@
         "id": "SP_0001",
         "name": "CocaCola",
         "price": 10000,
-        "stock": 17,
+        "stock": 7,
         "category": "Beverages",
         "image": "image/cocacola.jpg"
     },
@@ -11,7 +11,7 @@
         "id": "SP_0002",
         "name": "Pepsi",
         "price": 12000,
-        "stock": 34,
+        "stock": 6,
         "category": "Beverages",
         "image": "image/pepsi.jpg"
     },
@@ -19,7 +19,7 @@
         "id": "SP_0003",
         "name": "Aquafina",
         "price": 8000,
-        "stock": 0,
+        "stock": 1,
         "category": "Beverages",
         "image": "image/aquafina.jpg"
     },
@@ -27,7 +27,7 @@
         "id": "SP_0004",
         "name": "Red Bull",
         "price": 15000,
-        "stock": 3,
+        "stock": 5,
         "category": "Beverages",
         "image": "image/redbull.jpg"
     },
@@ -35,7 +35,7 @@
         "id": "SP_0005",
         "name": "Sprite",
         "price": 11000,
-        "stock": 8,
+        "stock": 10,
         "category": "Beverages",
         "image": "image/sprite.jpg"
     },
@@ -43,7 +43,7 @@
         "id": "SP_0006",
         "name": "Cafe",
         "price": 20000,
-        "stock": 4,
+        "stock": 6,
         "category": "Beverages",
         "image": "image/cafe.jpg"
     },
@@ -91,7 +91,7 @@
         "id": "SP_0012",
         "name": "Shampoo",
         "price": 40000,
-        "stock": 4,
+        "stock": 5,
         "category": "Personal Cares",
         "image": "image/shampoo.jpg"
     },
@@ -165,7 +165,7 @@
         "price": 25000,
         "stock": 10,
         "category": "Snacks",
-        "image": "image/nuts_mix.jpg"
+            "image": "image/nuts_mix.jpg"
     },
     {
         "id": "SP_0022",
@@ -198,5 +198,173 @@
         "stock": 7,
         "category": "Personal Cares",
         "image": "image/hair_conditioner.jpg"
+    },
+    {
+       "id": "SP_00026",
+        "name": "C2",
+        "price": 10000,
+        "stock": 5,
+        "category": "Beverages",
+        "image": "image/c2.jpg"
+    },
+    {
+        "id": "SP_00027",
+        "name": "Green tea",
+        "price": 10000,
+        "stock": 9,
+        "category": "Beverages",
+        "image": "image/traxanh.jpg"
+    },
+    {
+        "id": "SP_00028",
+        "name": "Sanwich",
+        "price": 15000,
+        "stock": 3,
+        "category": "Fast Food",
+        "image": "image/sanwich.jpg"
+    },
+    {
+        "id": "SP_00029",
+        "name": "Donut",
+        "price": 12000,
+        "stock": 4,
+        "category": "Fast Food",
+        "image": "image/donut.jpg"
+    },
+    {
+        "id": "SP_00030",
+        "name": "Muffin",
+        "price": 12000,
+        "stock": 4,
+        "category": "Fast Food",
+        "image": "image/muffin.jpg"
+    },
+    {
+        "id": "SP_00031",
+        "name": "Sausage",
+        "price": 10000,
+        "stock": 6,
+        "category": "Fast Food",
+        "image": "image/sausage.jpg"
+    },
+    {
+        "id": "SP_00032",
+        "name": "Pretzel",
+        "price": 15000,
+        "stock": 5,
+        "category": "Fast Food",
+        "image": "image/pretzel.jpg"
+    },
+    {
+        "id": "SP_00033",
+        "name": "Pasta",
+        "price": 25000,
+        "stock": 2,
+        "category": "Fast Food",
+        "image": "image/pasta.jpg"
+    },
+    {
+        "id": "SP_00034",
+        "name": "Empanada",
+        "price": 20000,
+        "stock": 2,
+        "category": "Fast Food",
+        "image": "image/banhbaochien.jpg"
+    },
+    {
+        "id": "SP_00035",
+        "name": "Fruit Gummies",
+        "price": 15000,
+        "stock": 9,
+        "category": "Snacks",
+        "image": "image/gumfruit.jpg"
+    },
+    {
+        "id": "SP_00036",
+        "name": "Marshmallow",
+        "price": 15000,
+        "stock": 7,
+        "category": "Snacks",
+        "image": "image/Marshmallow.jpg"
+    },
+    {
+        "id": "SP_00037",
+        "name": "Dried Fruits",
+        "price": 15000,
+        "stock": 9,
+        "category": "Snacks",
+        "image": "image/traicaysay.jpg"
+    },
+    {
+        "id": "SP_00038",
+        "name": "Seaweed Snacks",
+        "price": 20000,
+        "stock": 8,
+        "category": "Snacks",
+        "image": "image/rongbiensay.jpg"
+    },
+    {
+        "id": "SP_00039",
+        "name": "Body Mist",
+        "price": 50000,
+        "stock": 7,
+        "category": "Personal Cares",
+        "image": "image/BodyMist.jpg"
+    },
+    {
+        "id": "SP_00040",
+        "name": "Deodorant",
+        "price": 60000,
+        "stock": 2,
+        "category": "Personal Cares",
+        "image": "image/Deodorant.jpg"
+    },
+    {
+        "id": "SP_00041",
+        "name": "Dry Shampoo",
+        "price": 80000,
+        "stock": 10,
+        "category": "Personal Cares",
+        "image": "image/dryshampoo.jpg"
+    },
+    {
+        "id": "SP_00042",
+        "name": "Hand Cream",
+        "price": 45000,
+        "stock": 14,
+        "category": "Personal Cares",
+        "image": "image/HandCream.jpg"
+    },
+    {
+        "id": "SP_00043",
+        "name": "Lip Balm",
+        "price": 65000,
+        "stock": 16,
+        "category": "Personal Cares",
+        "image": "image/lipbalm.jpg"
+    },
+    {
+        "id": "SP_00044",
+        "name": "Mouth Wash",
+        "price": 60000,
+        "stock": 20,
+        "category": "Personal Cares",
+        "image": "image/mouthwash.jpg"
+    },
+    {
+        "id": "SP_00045",
+        "name": "Sun Screen",
+        "price": 80000,
+        "stock": 22,
+        "category": "Personal Cares",
+        "image": "image/sunscreen.jpg"
+    },
+    {
+        "id": "SP_00046",
+        "name": "Toner",
+        "price": 100000,
+        "stock": 24,
+        "category": "Personal Cares",
+        "image": "image/toner.jpg"
     }
 ]
