@@ -7,8 +7,10 @@ import sys
 from CInvoice import Invoice
 from CProductList import ProductList
 from Cart import Cart
+from CAdmin_list import *
 import os
 from InvoiceDialog import InvoiceDialog
+from nhi.SMART_VENDING_MACHINE2.test import admin_name
 
 
 class Ui(QtWidgets.QMainWindow):
@@ -328,12 +330,84 @@ class Ui(QtWidgets.QMainWindow):
         self.scroll_widget.adjustSize()  # Điều chỉnh kích thước widget cuộn
         self.scroll_area.verticalScrollBar().setValue
 
+#Giao diện Login
 class LoginWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('loginn.ui', self)  # Load file login.ui
+        uic.loadUi('login.ui', self)  # Load file login.ui
         self.setWindowTitle("Đăng nhập")
+        self.dinhnghianutlenh()
 
+    # liên kết nút lệnh
+    def dinhnghianutlenh(self):
+        self.pushButton_login.clicked.connect(self.login)
+
+    def login(self):
+        """Kiểm tra đăng nhập và mở cửa sổ Manager"""
+        try:
+            admin_list = AdminList()
+            username = self.lineEdit_name.text().strip()
+            password = self.lineEdit_password.text().strip()
+            print(username, password)
+
+            if admin_list.check_login(username, password):
+                QMessageBox.information(self, "Success", "Đăng nhập thành công!")
+
+                self.manager_window = ManagerWindow(username)  # Tạo cửa sổ Manager
+                self.manager_window.show()  # Hiển thị cửa sổ Manager
+                self.hide()  # Ẩn cửa sổ đăng nhập (không đóng hẳn)
+
+            else:
+                QMessageBox.warning(self, "Error", "Sai tài khoản hoặc mật khẩu!")
+
+        except Exception as e:
+            print(f"Đã xảy ra lỗi khi kiểm tra đăng nhập: {e}")
+
+#Giao diện Manager
+from PyQt6.QtWidgets import QMainWindow, QMessageBox, QTableWidgetItem
+from PyQt6 import uic
+from CProductList import ProductList
+
+class ManagerWindow(QMainWindow):
+    def __init__(self, username):
+        super().__init__()
+        uic.loadUi("manage.ui", self)  # Load giao diện quản lý sản phẩm
+        self.setWindowTitle(f"Quản lý sản phẩm - {username}")
+        self.dinhnghianutlenh()
+
+        self.product_list = ProductList()
+        self.load_products()
+        self.username = username  # Lưu tên admin
+        self.admin_name = admin_name
+
+    # liên kết nút lệnh
+    def dinhnghianutlenh(self):
+        self.pushButton_update.clicked.connect(self.update_stock)
+
+    def load_products(self):
+        """Tải danh sách sản phẩm vào bảng"""
+        self.tableWidget.setRowCount(len(self.product_list.products))
+        for row, product in enumerate(self.product_list.products):
+            self.tableWidget.setItem(row, 0, QTableWidgetItem(product.id))
+            self.tableWidget.setItem(row, 1, QTableWidgetItem(product.name))
+            self.tableWidget.setItem(row, 2, QTableWidgetItem(product.category))
+            self.tableWidget.setItem(row, 3, QTableWidgetItem(str(product.price)))
+            self.tableWidget.setItem(row, 4, QTableWidgetItem(str(product.stock)))
+
+    def update_stock(self):
+        """Cập nhật số lượng sản phẩm"""
+        product_id = self.lineEdit_ID.text()
+        quantity = self.lineEdit_SL.text()
+
+        if not product_id or not quantity.isdigit():
+            QMessageBox.warning(self, "Lỗi", "Vui lòng nhập mã sản phẩm và số lượng hợp lệ!")
+            return
+        success = self.product_list.update_product_stock(product_id, int(quantity), self.admin_name)
+        if success:
+            QMessageBox.information(self, "Thành công", "Cập nhật số lượng thành công!")
+            self.load_products()  # Cập nhật lại bảng
+        else:
+            QMessageBox.warning(self, "Lỗi", "Mã sản phẩm không tồn tại!")
 
 app = QtWidgets.QApplication(sys.argv)
 window = Ui()

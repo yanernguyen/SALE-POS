@@ -6,6 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
+    <width>959</width>
+    <height>742</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,13 +17,16 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
+      <x>460</x>
       <y>20</y>
+      <width>281</width>
       <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Sitka Small Semibold</family>
+      <pointsize>12</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -35,14 +40,27 @@
      <rect>
       <x>20</x>
       <y>90</y>
+      <width>921</width>
+      <height>441</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>Sitka Text Semibold</family>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
+     <string notr="true">
     QHeaderView::section { 
+        background-color: #F0F0F0;
+font-weight: bold;
+    }
+</string>
+    </property>
+    <property name="sizeAdjustPolicy">
+     <enum>QAbstractScrollArea::AdjustToContents</enum>
     </property>
     <property name="showGrid">
      <bool>true</bool>
@@ -53,9 +71,17 @@
     <property name="sortingEnabled">
      <bool>true</bool>
     </property>
+    <property name="columnCount">
+     <number>5</number>
+    </property>
     <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>184</number>
     </attribute>
     <attribute name="horizontalHeaderMinimumSectionSize">
+     <number>51</number>
+    </attribute>
+    <attribute name="horizontalHeaderStretchLastSection">
+     <bool>false</bool>
     </attribute>
     <attribute name="verticalHeaderDefaultSectionSize">
      <number>51</number>
@@ -88,15 +114,12 @@
       <string>Quantity</string>
      </property>
     </column>
-    <column>
-     <property name="text">
-      <string>Actions</string>
-     </property>
-    </column>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
+      <x>80</x>
+      <y>550</y>
       <width>281</width>
       <height>41</height>
      </rect>
@@ -110,12 +133,14 @@
      </font>
     </property>
     <property name="text">
-     <string>Add new product</string>
+     <string>Update product</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="lineEdit_ID">
     <property name="geometry">
      <rect>
+      <x>170</x>
+      <y>600</y>
       <width>401</width>
       <height>41</height>
      </rect>
@@ -141,12 +166,14 @@ QLineEdit:focus {
      <string/>
     </property>
     <property name="placeholderText">
-     <string>Enter full name</string>
+     <string>Enter Product_ID </string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_3">
+   <widget class="QLineEdit" name="lineEdit_SL">
     <property name="geometry">
      <rect>
+      <x>170</x>
+      <y>660</y>
       <width>401</width>
       <height>41</height>
      </rect>
@@ -169,40 +196,14 @@ QLineEdit:focus {
 }</string>
     </property>
     <property name="placeholderText">
-     <string>Category</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_4">
-    <property name="geometry">
-     <rect>
-      <width>121</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>-1</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QLineEdit {
-    border: 2px solid #E0E0E0;
-    border-radius: 6px;
-    padding: 5px 10px;
-    font-size: 14px;
-}
-
-QLineEdit:focus {
-    border: 2px solid #4CAF50;
-}</string>
-    </property>
-    <property name="placeholderText">
-     <string>VND</string>
+     <string>Enteer Category</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
+      <x>80</x>
+      <y>610</y>
       <width>59</width>
       <height>17</height>
      </rect>
@@ -214,31 +215,16 @@ QLineEdit:focus {
      </font>
     </property>
     <property name="text">
-     <string>Name</string>
+     <string>ID</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
+      <x>80</x>
+      <y>660</y>
       <width>91</width>
       <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Sitka Small</family>
-      <pointsize>9</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Category</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <width>101</width>
-      <height>20</height>
      </rect>
     </property>
     <property name="font">
@@ -251,40 +237,11 @@ QLineEdit:focus {
      <string>Quantity</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_6">
+   <widget class="QPushButton" name="pushButton_update">
     <property name="geometry">
      <rect>
-      <width>59</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Sitka Small</family>
-      <pointsize>9</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Price</string>
-    </property>
-   </widget>
-   <widget class="QSpinBox" name="spinBox">
-    <property name="geometry">
-     <rect>
-      <width>121</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Siemens Slab</family>
-      <pointsize>9</pointsize>
-     </font>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
+      <x>670</x>
+      <y>600</y>
       <width>141</width>
       <height>41</height>
      </rect>
@@ -312,12 +269,14 @@ QPushButton:pressed {
 </string>
     </property>
     <property name="text">
-     <string>Add Product</string>
+     <string>Update Product</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
+      <x>670</x>
+      <y>660</y>
       <width>141</width>
       <height>41</height>
      </rect>
@@ -354,6 +313,8 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
+     <width>959</width>
+     <height>18</height>
     </rect>
    </property>
   </widget>

@@ -3,7 +3,7 @@
         "id": "SP_0001",
         "name": "CocaCola",
         "price": 10000,
-        "stock": 7,
+        "stock": 17,
         "category": "Beverages",
         "image": "image/cocacola.jpg"
     },
@@ -11,7 +11,7 @@
         "id": "SP_0002",
         "name": "Pepsi",
         "price": 12000,
-        "stock": 4,
+        "stock": 9,
         "category": "Beverages",
         "image": "image/pepsi.jpg"
     },
@@ -35,7 +35,7 @@
         "id": "SP_0005",
         "name": "Sprite",
         "price": 11000,
-        "stock": 9,
+        "stock": 8,
         "category": "Beverages",
         "image": "image/sprite.jpg"
     },
@@ -43,7 +43,7 @@
         "id": "SP_0006",
         "name": "Cafe",
         "price": 20000,
-        "stock": 5,
+        "stock": 4,
         "category": "Beverages",
         "image": "image/cafe.jpg"
     },

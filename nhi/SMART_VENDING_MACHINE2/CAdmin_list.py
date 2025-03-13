@@ -5,7 +5,7 @@ import json
 import os
 
 class AdminList:
-    FILE_PATH = "admin_data.json"
+    FILE_PATH = "data/admin_data.json"
 
     def __init__(self):
         self.admins = []
@@ -36,12 +36,12 @@ class AdminList:
         """Tìm admin theo username"""
         return next((admin for admin in self.admins if admin.username == username), None)
 
-    def login(self, username: str, password: str):
-        """Kiểm tra đăng nhập"""
-        admin = self.get_admin(username)
-        if admin and admin.password == password:
-            return True
-        return False
+    def check_login(self, username, password):
+        """Kiểm tra đăng nhập từ JSON"""
+        for admin in self.admins:
+            if admin.username == username and admin.password == password:  # ✅ Đúng cách truy cập
+                return True  # ✅ Đăng nhập thành công
+        return False  # ❌ Sai tài khoản hoặc mật khẩu
 
 # ✅ Test thử
 if __name__ == "__main__":
