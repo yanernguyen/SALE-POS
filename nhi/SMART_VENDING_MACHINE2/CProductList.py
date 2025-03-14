@@ -25,7 +25,7 @@ class ProductList:
                     )
                     products.append(product)  # Chuyển đổi dữ liệu JSON thành đối tượng Product
         except FileNotFoundError:
-            print("⚠️ Lỗi: Không tìm thấy file products.json.")
+            print("⚠Lỗi: Không tìm thấy file products.json.")
         return products
 
     def save_products(self):
@@ -33,7 +33,7 @@ class ProductList:
             with open("data/products.json", "w") as file:
                 json.dump([product.to_dict() for product in self.products], file, indent=4)
         except Exception as e:
-            print(f"⚠️ Lỗi khi lưu file products.json: {e}")
+            print(f"⚠Lỗi khi lưu file products.json: {e}")
 
     def search_products(self, keyword: str) -> List[Product]:
         return [product for product in self.products if keyword.lower() in product.name.lower()]
@@ -58,9 +58,9 @@ class ProductList:
         if product:
             if product.stock >= quantity:
                 product.stock -= quantity
-                return True  # Giảm stock thành công
+                return True
             else:
-                return False  # Không đủ hàng trong kho
+                return False
         return None
 
 

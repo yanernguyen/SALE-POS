@@ -14,7 +14,7 @@ class AdminSecurity:
             combined = input_password.encode() + salt + cls._pepper
             return bcrypt.checkpw(combined, hashed_password)
         except Exception as e:
-            # Log lỗi nếu cần
+            """ Log lỗi nếu cần"""
             return False
 
     @staticmethod

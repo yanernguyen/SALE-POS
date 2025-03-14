@@ -17,13 +17,13 @@ class Cart:
     def add_product(self, product_id: str, quantity: int = 1) -> bool:
         product = self.product_list.get_product_by_id(product_id)
         if not product:
-            return False  # Không tìm thấy sản phẩm
+            return False
 
         current_quantity = self.cart[product_id]['qty'] if product_id in self.cart else 0
         if current_quantity + quantity > product.stock:
             return False
-
-        if product.stock >= quantity:  # Kiểm tra số lượng tồn kho
+        """Kiểm tra số lượng tồn kho"""
+        if product.stock >= quantity:
             if product.id not in self.cart:
                 self.cart[product.id] = {
                     'name': product.name,
@@ -34,11 +34,11 @@ class Cart:
             else:
                 self.cart[product.id]['qty'] += quantity
 
-            product.stock -= quantity  # Cập nhật số lượng tồn kho
-            # self.product_list.save_products()  # Lưu thay đổi vào file
+            """Cập nhật số lượng tồn kho"""
+            product.stock -= quantity
             return True
 
-        return False  # Không đủ hàng để thêm vào giỏ
+        return False
 
     def update_item_quantity(self, product_id: str, quantity_change: int):
         if product_id in self.cart:
@@ -105,7 +105,7 @@ class Cart:
                 else:
                     self.cart.items = {}
         except FileNotFoundError:
-            print("⚠️ Lỗi: Không tìm thấy file cart.json.")
+            print("⚠Lỗi: Không tìm thấy file cart.json.")
             self.cart.items = {}
 
 
@@ -115,10 +115,10 @@ class Cart:
             return -1,0,0  # Giỏ hàng trống, không thực hiện thanh toán
         total, tax, total_after_tax = self.get_total()  # Tính tổng tiền
         if total > 0:
-            # Lưu thông tin giỏ hàng vào file cart.json
+            """ Lưu thông tin giỏ hàng vào file cart.json"""
             self.save_cart(total)
             self.save_cart(total_after_tax)
-            # Xóa giỏ hàng sau khi thanh toán
+            """ Xóa giỏ hàng sau khi thanh toán"""
             return total, tax, total_after_tax
         return -1,0,0
 
@@ -128,13 +128,13 @@ class Cart:
                 cart_data = json.load(file)
         except FileNotFoundError:
             cart_data = []
-        # Thêm hóa đơn mới vào danh sách
+        """Thêm hóa đơn mới vào danh sách"""
         bill = {
             "items": self.to_dict(),  # Lấy thông tin giỏ hàng
             "total": total,  # Tổng tiền
         }
         cart_data.append(bill)
-        # Lưu lại danh sách hóa đơn vào file cart.json
+        """Lưu lại danh sách hóa đơn vào file cart.json"""
         with open("data/cart.json", "w") as file:
             json.dump(cart_data, file, indent=4)
 

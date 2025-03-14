@@ -16,11 +16,11 @@ def generate_receipt(cart):
 
     pdf.set_font("Times", size=12)
 
-    # Thông tin hóa đơn
+    """Thông tin hóa đơn """
     pdf.cell(200, 10, f"Ngày: {datetime.now().strftime('%d-%m-%Y %H:%M')}", ln=True, align="R")
     pdf.ln(5)
 
-    # Bảng sản phẩm
+    """Bảng sản phẩm """
     pdf.set_font("Times", style="B", size=12)
     pdf.cell(80, 8, "Sản phẩm", border=1, align="C")
     pdf.cell(30, 8, "Số lượng", border=1, align="C")
@@ -28,7 +28,7 @@ def generate_receipt(cart):
     pdf.cell(40, 8, "Thành tiền", border=1, align="C")
     pdf.ln()
 
-    # Nội dung giỏ hàng
+    """Nội dung giỏ hàng """
     pdf.set_font("Times", size=12)
     total, tax, total_after_tax = cart.get_total()
 
@@ -44,7 +44,7 @@ def generate_receipt(cart):
         pdf.cell(40, 8, f"{total_price:,.0f} đ", border=1, align="R")
         pdf.ln()
 
-    # Tổng tiền & thuế
+    """Tổng tiền và thuế """
     pdf.ln(5)
     pdf.set_font("Times", style="B", size=12)
 
@@ -63,11 +63,11 @@ def generate_receipt(cart):
     pdf.set_font("Times", size=12)
     pdf.cell(200, 10, "Cảm ơn quý khách đã mua hàng!", ln=True, align="C")
 
-    # Xuất PDF
+    """Xuất PDF """
     pdf.output("receipt.pdf")
 
 
-# Kiểm tra xuất hóa đơn
+"""Kiểm tra xuất hóa đơn """
 cart = Cart()
 cart.add_product("p01", 2)
 cart.add_product("p02", 1)

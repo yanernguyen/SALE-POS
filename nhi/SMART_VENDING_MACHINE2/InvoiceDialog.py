@@ -22,7 +22,7 @@ class InvoiceDialog(QDialog):
 
         layout = QVBoxLayout()
 
-        # Hiển thị tổng tiền, thuế
+        """Hiển thị tổng tiền, thuế """
         self.label_total = QLabel(f"Tổng tiền: {invoice.total:,.0f}đ")
         self.label_tax = QLabel(f"Thuế: {invoice.tax:,.0f}đ")
         self.label_final_total = QLabel(f"Tổng tiền sau thuế: {invoice.total_after_tax:,.0f}đ")
@@ -33,7 +33,7 @@ class InvoiceDialog(QDialog):
 
         invoice_data = invoice.to_dict()
 
-        # Tạo bảng hiển thị sản phẩm
+        """Tạo bảng hiển thị sản phẩm """
         self.table = QTableWidget()
         self.table.setColumnCount(4)
         self.table.setHorizontalHeaderLabels(["Sản phẩm", "Số lượng", "Giá", "Tổng"])
@@ -48,7 +48,7 @@ class InvoiceDialog(QDialog):
 
         layout.addWidget(self.table)
 
-        # Nút chọn phương thức thanh toán
+        """Nút chọn phương thức thanh toán """
         self.btn_momo = QPushButton("Chuyển khoản")
         self.btn_momo.clicked.connect(lambda: self.process_payment("MoMo"))
 
@@ -64,20 +64,20 @@ class InvoiceDialog(QDialog):
         button_layout.addWidget(self.btn_cash)
         layout.addLayout(button_layout)
 
-        # Nút tải hóa đơn PDF (vô hiệu hoá ban đầu)
+        """Nút tải hóa đơn PDF (vô hiệu hoá ban đầu) """
         self.btn_download_pdf = QPushButton("Tải hóa đơn (PDF)")
         self.btn_download_pdf.setEnabled(False)  # Chỉ bật sau khi chọn thanh toán
         self.btn_download_pdf.clicked.connect(self.generate_invoice)
         layout.addWidget(self.btn_download_pdf)
 
-        # Nút xem hóa đơn (ẩn nếu chưa có file PDF)
+        """Nút xem hóa đơn (ẩn nếu chưa có file PDF) """
         self.btn_view_invoice = QPushButton("Xem hóa đơn")
         self.btn_view_invoice.setEnabled(False)  # Chỉ bật khi có file PDF
         self.btn_complete = QPushButton("Hoàn thành")
         self.btn_complete.clicked.connect(self.complete_transaction)
         layout.addWidget(self.btn_complete)
 
-        # Tạo QLabel để hiển thị mã QR MoMo
+        """Tạo QLabel để hiển thị mã QR MoMo """
         self.qr_label = QLabel()
         self.qr_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(self.qr_label)
@@ -94,7 +94,7 @@ class InvoiceDialog(QDialog):
         elif method == "Thẻ tín dụng":
             webbrowser.open("https://www.paypal.com/")
 
-        # Kích hoạt nút tải hóa đơn sau khi chọn thanh toán
+        """Kích hoạt nút tải hóa đơn sau khi chọn thanh toán """
         self.btn_download_pdf.setEnabled(True)
 
     def generate_invoice(self):
@@ -105,7 +105,7 @@ class InvoiceDialog(QDialog):
 
         self.invoice.generate_invoice()
 
-        # Tìm file PDF vừa tạo
+        """Tìm file PDF vừa tạo """
         invoices_folder = os.path.join(os.getcwd(), "Invoices")
         files = sorted(os.listdir(invoices_folder), reverse=True)  # Lấy file mới nhất
         if files:

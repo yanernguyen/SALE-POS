@@ -44,7 +44,7 @@ class Invoice:
         invoices_folder = os.path.join(os.getcwd(), "Invoices")
         if not os.path.exists(invoices_folder):
             os.makedirs(invoices_folder)
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")  # Ví dụ: 20250312_154530
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         file_name = f"invoice_{timestamp}.pdf"
         file_path = os.path.join(invoices_folder, file_name)
         invoice_data = self.to_dict()
@@ -52,16 +52,15 @@ class Invoice:
         c = canvas.Canvas(file_path, pagesize=letter)
         c.setFont("Helvetica", 12)
 
-        # Tiêu đề hóa đơn
+        """Tiêu đề hóa đơn"""
         c.drawString(50, 750, "RECEIPT")
         c.drawString(50, 730, f"Date: {invoice_data['datetime']}")
 
-        # Vẽ bảng danh sách sản phẩm
+        """Vẽ bảng danh sách sản phẩm"""
         y_position = 700
         c.drawString(50, y_position, "Product Name")
         c.drawString(150, y_position, "Quantity")
         c.drawString(250, y_position, "Price")
-        # c.drawString(350, y_position, "Total")
 
         y_position -= 20
         for item in invoice_data['cart'].values():
@@ -70,7 +69,7 @@ class Invoice:
             c.drawString(250, y_position, f"{item['unit_price']:,.0f}")
             y_position -= 20
 
-        # Hiển thị tổng tiền
+        """ Hiển thị tổng tiền"""
         y_position -= 30
         c.drawString(100, y_position, f"Total: {invoice_data['total']:,.0f}")
 
@@ -81,6 +80,6 @@ class Invoice:
         c.drawString(100, y_position, f"Total after tax: {invoice_data['total_after_tax']:,.0f}")
 
         c.save()
-        print(f"✅ Hóa đơn đã được lưu tại {file_name}")
+        print(f"Hóa đơn đã được lưu tại {file_name}")
 
 

@@ -3,13 +3,14 @@ from typing import Optional
 
 
 class Product:
-    _next_id = 1  # Biến class quản lý ID
+    _next_id = 1
+    """Biến class quản lý ID """
 
     def __init__(self, name: str, category: str, price: float,
                  stock: int, image: str = None, id: str = None):
-        # Xử lý ID
+        """Xử lý ID"""
         if id is None:
-            self.id = f"SP_{Product._next_id:04d}"  # Format: SP_0001
+            self.id = f"SP_{Product._next_id:04d}"
             Product._next_id += 1
         else:
             self.id = id
@@ -17,7 +18,7 @@ class Product:
             if numeric_part >= Product._next_id:
                 Product._next_id = numeric_part + 1
 
-        # Các thuộc tính khác giữ nguyên
+        """Các thuộc tính khác giữ nguyên """
         self.name = name
         self.category = category
         self.price = price

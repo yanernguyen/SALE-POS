@@ -5,11 +5,11 @@ import sys
 class ProductManager(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi("manage.ui", self)  # Load giao diện từ file .ui
+        uic.loadUi("manage.ui", self)
 
         self.table = self.findChild(QTableWidget, "tableWidget")  # Lấy bảng theo objectName
         self.table.setColumnCount(6)  # ID, Name, Category, Price, Quantity, Actions
-        # Thêm dữ liệu
+        """Thêm dữ liệu """
         data = [
             (1, "Product 1", "Category A", "10.99", "5"),
             (2, "Product 2", "Category B", "15.99", "3"),
@@ -31,7 +31,7 @@ class ProductManager(QMainWindow):
         layout = QHBoxLayout()
         layout.setContentsMargins(0, 0, 0, 0)
 
-        # Nút Edit - Màu xanh lá
+        """Nút Edit - Màu xanh lá """
         btn_edit = QPushButton("Edit")
         btn_edit.setFixedSize(80, 35)
         btn_edit.setStyleSheet("""
@@ -45,7 +45,7 @@ class ProductManager(QMainWindow):
         """)
         btn_edit.clicked.connect(lambda: self.edit_product(row))
 
-        # Nút Delete - Màu đỏ
+        """Nút Delete - Màu đỏ """
         btn_delete = QPushButton("Delete")
         btn_delete.setFixedSize(80, 35)
         btn_delete.setStyleSheet("""
@@ -59,12 +59,12 @@ class ProductManager(QMainWindow):
         """)
         btn_delete.clicked.connect(lambda: self.delete_product(row))
 
-        # Thêm nút vào layout
+        """Thêm nút vào layout """
         layout.addWidget(btn_edit)
         layout.addWidget(btn_delete)
         widget.setLayout(layout)
 
-        # Đặt widget chứa nút vào bảng
+        """Đặt widget chứa nút vào bảng """
         self.table.setCellWidget(row, 5, widget)
 
     def edit_product(self, row):
