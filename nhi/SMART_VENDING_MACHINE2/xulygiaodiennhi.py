@@ -1,3 +1,4 @@
+
 from PyQt6 import QtWidgets, uic
 from PyQt6.QtWidgets import QMessageBox, QLabel, QFrame, QPushButton, QVBoxLayout, QTableWidgetItem
 from PyQt6.QtGui import QPixmap
@@ -8,7 +9,6 @@ from CInvoice import Invoice
 from CProductList import ProductList
 from Cart import Cart
 from CAdmin_list import *
-import os
 from InvoiceDialog import InvoiceDialog
 from nhi.SMART_VENDING_MACHINE2.test import admin_name
 
@@ -16,9 +16,7 @@ from nhi.SMART_VENDING_MACHINE2.test import admin_name
 class Ui(QtWidgets.QMainWindow):
     def __init__(self):
         super(Ui, self).__init__()
-        uic.loadUi('giaodien2.ui', self)
-        # Khởi tạo các biến và tham chiếu UI
-        # self.functions = SmartMartFunctions()  # Class quản lý sản phẩm và giỏ hàng
+        uic.loadUi('giaodien2.ui', self)  # Khởi tạo các biến và tham chiếu UI
         self.productlist = ProductList()
         self.cart = Cart()
         self.selected_frames = []  # Danh sách các sản phẩm được chọn
@@ -29,10 +27,8 @@ class Ui(QtWidgets.QMainWindow):
         self.scrollContent2 = self.scroll_area.widget()  # Lấy widget chứa sản phẩm
         self.product_container = self.scrollContent2.findChild(QtWidgets.QGridLayout, "productContainer")
         self.scroll_area.setWidgetResizable(True)  # Đảm bảo có thể cuộn
-        # self.scroll_content2.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         self.scrollContent2.adjustSize()
         self.pushButton_icon = self.findChild(QtWidgets.QPushButton, "pushButton_icon")
-        print(self.pushButton_icon)  # Kiểm tra xem có phải None không
 
         icon = QIcon("image/icon.jpg")  # Đường dẫn tới file icon
         self.pushButton_icon.setIcon(icon)
@@ -46,7 +42,7 @@ class Ui(QtWidgets.QMainWindow):
 
 
     def lienketnutlenh(self):
-        # Kết nối các nút với hàm xử lý
+        # Kết nối nút lệnh với hàm
         self.pushButton_SEARCH.clicked.connect(self.search_product)
         self.pushButton_ADD.clicked.connect(self.add_to_cart)
         self.pushButton_REMOVE.clicked.connect(self.remove_from_cart)
@@ -66,15 +62,11 @@ class Ui(QtWidgets.QMainWindow):
         self.login_window.show()
 
 
-
-
-
     def setup_products(self):
-        # Thiết lập giao diện sản phẩm ban đầu
         # Thiết lập giao diện sản phẩm ban đầu
         self.scroll_widget = QtWidgets.QWidget()  # Widget chứa danh sách sản phẩm
 
-        self.product_container = QtWidgets.QGridLayout(self.scroll_widget) # Sử dụng layout dọc thay vì grid
+        self.product_container = QtWidgets.QGridLayout(self.scroll_widget)
         self.product_container.setSpacing(10)
 
         self.scroll_area.setWidget(self.scroll_widget)  # Đặt widget cuộn
@@ -82,18 +74,18 @@ class Ui(QtWidgets.QMainWindow):
         self.load_products()
 
     def get_unique_categories(self):
-        """Lấy danh sách danh mục không trùng lặp từ danh sách sản phẩm"""
+        #Lấy danh sách danh mục không trùng lặp từ danh sách sản phẩm
         return sorted(set(product.category for product in self.productlist.products))
 
     def load_products(self):
         # Lấy danh sách sản phẩm từ SmartMartFunctions
         self.products = self.productlist.products
 
-        # Hiển thị danh mục mặc định (ví dụ: "Beverages")
+        # Hiển thị danh mục mặc định
         self.filter_product("Beverages")
 
     def add_product(self, product, row, col):
-        """Thêm sản phẩm vào lưới hiển thị"""
+        #Thêm sản phẩm vào lưới hiển thị
         product_frame = QFrame()
         product_frame.setLayout(QVBoxLayout())
         product_frame.setFixedSize(200, 241)
@@ -135,7 +127,7 @@ class Ui(QtWidgets.QMainWindow):
         product_frame.layout().addWidget(label_image)
         product_frame.layout().addWidget(button)
 
-        # Thêm vào `QGridLayout` theo hàng và cột
+        # Thêm hàng và cột
         self.product_container.addWidget(product_frame, row, col)
 
     def add_to_cart(self):
@@ -153,7 +145,6 @@ class Ui(QtWidgets.QMainWindow):
                 if not self.cart.add_product(product.id):
                     QMessageBox.warning(self, "Lỗi",
                                         f"Không thể thêm sản phẩm '{product.name}' vào giỏ hàng. Có thể số lượng tồn kho không đủ.")
-                # if self.cart.has_item(product.id):  # Nếu đã có trong giỏ hàng
 
         # Cập nhật lại bảng giỏ hàng sau khi xử lý tất cả sản phẩm
         self.update_cart_table()
@@ -230,10 +221,8 @@ class Ui(QtWidgets.QMainWindow):
                         """)
 
     def remove_from_cart(self):
-        """
-        Xóa sản phẩm khỏi giỏ hàng dựa trên thông tin hiển thị trong bảng.
-        Không cần lấy product_id, sử dụng tên sản phẩm để xác định.
-        """
+        #Xóa sản phẩm khỏi giỏ hàng dựa trên thông tin hiển thị trong bảng.
+        # Không cần lấy product_id, sử dụng tên sản phẩm để xác định.
         # Kiểm tra xem giỏ hàng có trống không
         if self.cart_table.rowCount() == 0:
             QMessageBox.warning(self, "Error", "Giỏ hàng đang trống.")
@@ -293,7 +282,6 @@ class Ui(QtWidgets.QMainWindow):
             self.label_subtotal.setText(f" {invoice.total:,.0f}đ")
             self.label_tax.setText(f" {invoice.tax:,.0f}đ")
             self.label_total.setText(f" {invoice.total_after_tax:,.0f}đ")
-            # QMessageBox.information(self, "Checkout", f"Tổng tiền: {invoice.total:.0f}đ\n Tien thue: {invoice.tax:.0f}\n Tong tien sau thue: {invoice.total_after_tax:.0f} \nThanh toán thành công!")
 
             self.update_cart_table()  # Cập nhật lại giao diện giỏ hàng
 
@@ -330,7 +318,7 @@ class Ui(QtWidgets.QMainWindow):
         self.scroll_widget.adjustSize()  # Điều chỉnh kích thước widget cuộn
         self.scroll_area.verticalScrollBar().setValue
 
-#Giao diện Login
+"""Giao diện Login"""
 class LoginWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
@@ -354,8 +342,8 @@ class LoginWindow(QtWidgets.QMainWindow):
                 QMessageBox.information(self, "Success", "Đăng nhập thành công!")
 
                 self.manager_window = ManagerWindow(username)  # Tạo cửa sổ Manager
-                self.manager_window.show()  # Hiển thị cửa sổ Manager
-                self.hide()  # Ẩn cửa sổ đăng nhập (không đóng hẳn)
+                self.manager_window.show()
+                self.hide()
 
             else:
                 QMessageBox.warning(self, "Error", "Sai tài khoản hoặc mật khẩu!")
@@ -412,3 +400,4 @@ class ManagerWindow(QMainWindow):
 app = QtWidgets.QApplication(sys.argv)
 window = Ui()
 app.exec()
+
