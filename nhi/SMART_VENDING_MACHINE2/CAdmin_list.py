@@ -39,9 +39,9 @@ class AdminList:
     def check_login(self, username, password):
         """Kiểm tra đăng nhập từ JSON"""
         for admin in self.admins:
-            if admin.username == username and admin.password == password:  # ✅ Đúng cách truy cập
-                return True  # ✅ Đăng nhập thành công
-        return False  # ❌ Sai tài khoản hoặc mật khẩu
+            if admin.username == username and admin.password == password:  # Đúng cách truy cập
+                return True  # Đăng nhập thành công
+        return False  # Sai tài khoản hoặc mật khẩu
 
 # ✅ Test thử
 if __name__ == "__main__":
@@ -52,5 +52,5 @@ if __name__ == "__main__":
     admin_list.add_admin("admin2", "password")
 
     # Kiểm tra đăng nhập
-    print(admin_list.login("admin1", "123456"))  # ✅ True
-    print(admin_list.login("admin2", "wrongpass"))  # ❌ False
+    print(admin_list.login("admin1", "123456"))  # True
+    print(admin_list.login("admin2", "wrongpass"))  # False
