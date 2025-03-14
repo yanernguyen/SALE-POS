@@ -63,19 +63,6 @@ class ProductList:
                 return False  # Không đủ hàng trong kho
         return None
 
-    # def reduce_stock(self, product_id: str, quantity: int):
-    #     product = self.get_product_by_id(product_id)
-    #     if product:
-    #         print(f"Trước khi trừ stock: {product.name} - {product.stock}")
-    #         if product.stock >= quantity:
-    #             product.stock -= quantity
-    #             print(f"Sau khi trừ stock: {product.name} - {product.stock}")
-    #             return True  # Giảm stock thành công
-    #         else:
-    #             print(f"Lỗi: Không đủ hàng! Stock hiện tại: {product.stock}, cần: {quantity}")
-    #             return False  # Không đủ hàng
-    #     print(f"Lỗi: Không tìm thấy sản phẩm {product_id}")
-    #     return None
 
     def update_product_stock(self, product_id: str, quantity: int, admin_name: str):
         """Cập nhật số lượng sản phẩm và ghi vào lịch sử nhập hàng."""
@@ -89,24 +76,6 @@ class ProductList:
 
 
 
-    #Thao tác manager
-    # def add_product(self, product: Product, admin_name: str):
-    #     """Thêm sản phẩm vào danh sách.""" #KHÔNG DÙNG
-    #     self.products.append(product)
-    #     self.save_products()
-    #     self.log_update("Thêm sản phẩm mới", product, admin_name)
-
-
-
-    # def remove_product(self, product_id: str, admin_name: str):
-    #     """Xóa sản phẩm khỏi danh sách."""  #KHÔNG DÙNG
-    #     product = self.get_product_by_id(product_id)
-    #     if product:
-    #         self.products.remove(product)
-    #         self.save_products()
-    #         self.log_update("Xóa sản phẩm", product, admin_name)
-    #         return True
-    #     return False
 
     def log_update(self, action: str, product: Product, admin_name: str, quantity: int = None):
         """Ghi lịch sử nhập hàng."""

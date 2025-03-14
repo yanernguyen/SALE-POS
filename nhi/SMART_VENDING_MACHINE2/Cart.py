@@ -108,15 +108,7 @@ class Cart:
             print("⚠️ Lỗi: Không tìm thấy file cart.json.")
             self.cart.items = {}
 
-    # def remove_from_cart(self, product_id: str) -> bool:
-    #     """Xóa sản phẩm khỏi giỏ hàng theo ID."""
-    #     product = self.product_list.get_product_by_id(product_id)
-    #     if product in self.cart.items:  # Kiểm tra nếu sản phẩm có trong giỏ hàng
-    #         self.remove_item(product)  # Xóa sản phẩm khỏi giỏ hàng
-    #         product.stock += 1  # Tăng lại số lượng tồn kho
-    #         self.product_list.save_products()  # Lưu thay đổi tồn kho vào file
-    #         return True
-    #     return False  # Không xóa được (không tìm thấy sản phẩm trong giỏ hàng)
+
 
     def checkout(self) -> float: #Nằm trong giao diện
         if not self.cart.items:
@@ -146,9 +138,3 @@ class Cart:
         with open("data/cart.json", "w") as file:
             json.dump(cart_data, file, indent=4)
 
-    # def add_to_cart(self, product_id: str) -> bool:
-    #     product = self.product_list.get_product_by_id(product_id)
-    #     if product.stock > 0:  # Kiểm tra sản phẩm có tồn tại và còn hàng
-    #         self.add_item(product, 1)  # Thêm sản phẩm vào giỏ hàng
-    #         return True
-    #     return False
