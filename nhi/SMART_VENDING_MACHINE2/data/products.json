@@ -3,7 +3,7 @@
         "id": "SP_0001",
         "name": "CocaCola",
         "price": 10000,
-        "stock": 7,
+        "stock": 17,
         "category": "Beverages",
         "image": "image/cocacola.jpg"
     },
@@ -11,7 +11,7 @@
         "id": "SP_0002",
         "name": "Pepsi",
         "price": 12000,
-        "stock": 6,
+        "stock": 13,
         "category": "Beverages",
         "image": "image/pepsi.jpg"
     },
@@ -19,7 +19,7 @@
         "id": "SP_0003",
         "name": "Aquafina",
         "price": 8000,
-        "stock": 1,
+        "stock": 10,
         "category": "Beverages",
         "image": "image/aquafina.jpg"
     },
@@ -27,7 +27,7 @@
         "id": "SP_0004",
         "name": "Red Bull",
         "price": 15000,
-        "stock": 5,
+        "stock": 3,
         "category": "Beverages",
         "image": "image/redbull.jpg"
     },
@@ -35,7 +35,7 @@
         "id": "SP_0005",
         "name": "Sprite",
         "price": 11000,
-        "stock": 10,
+        "stock": 1,
         "category": "Beverages",
         "image": "image/sprite.jpg"
     },
@@ -43,7 +43,7 @@
         "id": "SP_0006",
         "name": "Cafe",
         "price": 20000,
-        "stock": 6,
+        "stock": 0,
         "category": "Beverages",
         "image": "image/cafe.jpg"
     },
@@ -99,7 +99,7 @@
         "id": "SP_0013",
         "name": "Toothpaste",
         "price": 20000,
-        "stock": 8,
+        "stock": 20,
         "category": "Personal Cares",
         "image": "image/toothpaste.jpg"
     },
@@ -123,7 +123,7 @@
         "id": "SP_0016",
         "name": "Nestea",
         "price": 15000,
-        "stock": 10,
+        "stock": 9,
         "category": "Beverages",
         "image": "image/nestea.jpg"
     },
@@ -131,7 +131,7 @@
         "id": "SP_0017",
         "name": "Hot Dog",
         "price": 22000,
-        "stock": 12,
+        "stock": 24,
         "category": "Fast Food",
         "image": "image/hotdog.jpg"
     },
@@ -165,13 +165,13 @@
         "price": 25000,
         "stock": 10,
         "category": "Snacks",
-            "image": "image/nuts_mix.jpg"
+        "image": "image/nuts_mix.jpg"
     },
     {
         "id": "SP_0022",
         "name": "Granola Bar",
         "price": 30000,
-        "stock": 8,
+        "stock": 7,
         "category": "Snacks",
         "image": "image/granola_bar.jpg"
     },
@@ -200,7 +200,7 @@
         "image": "image/hair_conditioner.jpg"
     },
     {
-       "id": "SP_00026",
+        "id": "SP_00026",
         "name": "C2",
         "price": 10000,
         "stock": 5,
@@ -275,7 +275,7 @@
         "id": "SP_00035",
         "name": "Fruit Gummies",
         "price": 15000,
-        "stock": 9,
+        "stock": 8,
         "category": "Snacks",
         "image": "image/gumfruit.jpg"
     },

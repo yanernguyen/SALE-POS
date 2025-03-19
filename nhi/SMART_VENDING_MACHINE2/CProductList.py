@@ -1,12 +1,10 @@
-from Product import *
+from CProduct import *
 from typing import List, Optional
 from datetime import datetime
 
 class ProductList:
     def __init__(self):
         self.products = self.load_products()
-
-
 
     def load_products(self) -> List[Product]:
         products = []
@@ -19,13 +17,13 @@ class ProductList:
                         id=data["id"],
                         name=data["name"],
                         price=data["price"],
-                        stock=data["stock"],
+                        stock=int(data.get("stock", 0)),
                         category=data["category"],
                         image=data["image"]
                     )
-                    products.append(product)  # Chuyển đổi dữ liệu JSON thành đối tượng Product
+                    products.append(product)
         except FileNotFoundError:
-            print("⚠Lỗi: Không tìm thấy file products.json.")
+            print("Lỗi")
         return products
 
     def save_products(self):
@@ -33,13 +31,23 @@ class ProductList:
             with open("data/products.json", "w") as file:
                 json.dump([product.to_dict() for product in self.products], file, indent=4)
         except Exception as e:
-            print(f"⚠Lỗi khi lưu file products.json: {e}")
+            print(f"⚠️ Lỗi khi lưu file products.json: {e}")
 
-    def search_products(self, keyword: str) -> List[Product]:
-        return [product for product in self.products if keyword.lower() in product.name.lower()]
+    def search_products(self, keyword: str):
+        matching_products = []
+        for product in self.products:
+            if keyword.lower() in product.name.lower():
+                matching_products.append(product)
+        return matching_products
 
-    def filter_product(self, category: str) -> List[Product]:
-        return [product for product in self.products if product.category == category]
+    def filter_product(self, category: str):
+        matching_products = []
+
+        for product in self.products:
+            if product.category == category:
+                matching_products.append(product)
+
+        return matching_products
 
     def get_product_by_id(self, product_id: str) -> Optional[Product]:
         for product in self.products:
@@ -55,26 +63,24 @@ class ProductList:
 
     def reduce_stock(self, product_id: str, quantity: int):
         product = self.get_product_by_id(product_id)
+
         if product:
             if product.stock >= quantity:
-                product.stock -= quantity
+                product.stock = product.stock - quantity
                 return True
             else:
                 return False
         return None
 
-
     def update_product_stock(self, product_id: str, quantity: int, admin_name: str):
-        """Cập nhật số lượng sản phẩm và ghi vào lịch sử nhập hàng."""
+
         product = self.get_product_by_id(product_id)
         if product:
-            product.stock += quantity
+            product.stock = product.stock + quantity
             self.save_products()
             self.log_update("Cập nhật số lượng", product, admin_name, quantity)
             return True
         return False
-
-
 
 
     def log_update(self, action: str, product: Product, admin_name: str, quantity: int = None):
@@ -88,12 +94,12 @@ class ProductList:
             "quantity": quantity if quantity is not None else "-",
         }
         try:
-            with open("data/history.json", "r",encoding="utf-8") as file:
+            with open("data/history.json", "r", encoding="utf-8") as file:
                 history = json.load(file)
         except (FileNotFoundError, json.JSONDecodeError):
             history = []
 
         history.append(log_entry)
 
-        with open("data/history.json", "w",encoding="utf-8") as file:
+        with open("data/history.json", "w", encoding="utf-8") as file:
             json.dump(history, file,ensure_ascii=False, indent=4)

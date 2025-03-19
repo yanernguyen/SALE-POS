@@ -1,4 +1,3 @@
-import json
 import os
 import webbrowser
 
@@ -7,7 +6,6 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtGui import QPixmap
 from PyQt6.QtCore import Qt
-from CInvoice import Invoice
 
 
 class InvoiceDialog(QDialog):
@@ -21,8 +19,6 @@ class InvoiceDialog(QDialog):
         self.setFixedSize(500, 600)
 
         layout = QVBoxLayout()
-
-        """Hiển thị tổng tiền, thuế """
         self.label_total = QLabel(f"Tổng tiền: {invoice.total:,.0f}đ")
         self.label_tax = QLabel(f"Thuế: {invoice.tax:,.0f}đ")
         self.label_final_total = QLabel(f"Tổng tiền sau thuế: {invoice.total_after_tax:,.0f}đ")
@@ -33,13 +29,13 @@ class InvoiceDialog(QDialog):
 
         invoice_data = invoice.to_dict()
 
-        """Tạo bảng hiển thị sản phẩm """
+
         self.table = QTableWidget()
         self.table.setColumnCount(4)
         self.table.setHorizontalHeaderLabels(["Sản phẩm", "Số lượng", "Giá", "Tổng"])
         self.table.setRowCount(len(invoice_data["cart"]))
 
-        for row, item in enumerate(invoice_data["cart"].values()):
+        for row, item in enumerate(invoice_data["cart"]):
             self.table.setItem(row, 0, QTableWidgetItem(item["name"]))
             self.table.setItem(row, 1, QTableWidgetItem(str(item["qty"])))
             self.table.setItem(row, 2, QTableWidgetItem(f"{item['unit_price']:,.0f}đ"))
@@ -48,7 +44,6 @@ class InvoiceDialog(QDialog):
 
         layout.addWidget(self.table)
 
-        """Nút chọn phương thức thanh toán """
         self.btn_momo = QPushButton("Chuyển khoản")
         self.btn_momo.clicked.connect(lambda: self.process_payment("MoMo"))
 
@@ -64,20 +59,20 @@ class InvoiceDialog(QDialog):
         button_layout.addWidget(self.btn_cash)
         layout.addLayout(button_layout)
 
-        """Nút tải hóa đơn PDF (vô hiệu hoá ban đầu) """
+
         self.btn_download_pdf = QPushButton("Tải hóa đơn (PDF)")
-        self.btn_download_pdf.setEnabled(False)  # Chỉ bật sau khi chọn thanh toán
+        self.btn_download_pdf.setEnabled(False)
         self.btn_download_pdf.clicked.connect(self.generate_invoice)
         layout.addWidget(self.btn_download_pdf)
 
-        """Nút xem hóa đơn (ẩn nếu chưa có file PDF) """
+
         self.btn_view_invoice = QPushButton("Xem hóa đơn")
-        self.btn_view_invoice.setEnabled(False)  # Chỉ bật khi có file PDF
+        self.btn_view_invoice.setEnabled(False)
         self.btn_complete = QPushButton("Hoàn thành")
         self.btn_complete.clicked.connect(self.complete_transaction)
         layout.addWidget(self.btn_complete)
 
-        """Tạo QLabel để hiển thị mã QR MoMo """
+
         self.qr_label = QLabel()
         self.qr_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(self.qr_label)
@@ -85,7 +80,6 @@ class InvoiceDialog(QDialog):
         self.setLayout(layout)
 
     def process_payment(self, method):
-        """ Xử lý thanh toán và bật nút tải hóa đơn """
         self.payment_method = method
         QMessageBox.information(self, "Phương thức thanh toán", f"Bạn đã chọn: {method}")
 
@@ -94,30 +88,27 @@ class InvoiceDialog(QDialog):
         elif method == "Thẻ tín dụng":
             webbrowser.open("https://www.paypal.com/")
 
-        """Kích hoạt nút tải hóa đơn sau khi chọn thanh toán """
+
         self.btn_download_pdf.setEnabled(True)
 
     def generate_invoice(self):
-        """ Gọi phương thức `generate_invoice()` của Invoice """
         if not self.payment_method:
             QMessageBox.warning(self, "Lỗi", "Vui lòng chọn phương thức thanh toán trước!")
             return
 
         self.invoice.generate_invoice()
 
-        """Tìm file PDF vừa tạo """
+
         invoices_folder = os.path.join(os.getcwd(), "Invoices")
-        files = sorted(os.listdir(invoices_folder), reverse=True)  # Lấy file mới nhất
+        files = sorted(os.listdir(invoices_folder), reverse=True)
         if files:
-            self.pdf_path = os.path.join(invoices_folder, files[0])  # Gán đường dẫn file mới nhất
+            self.pdf_path = os.path.join(invoices_folder, files[0])
             QMessageBox.information(self, "Hoàn tất", "Hóa đơn PDF đã được tạo thành công!")
 
     def complete_transaction(self):
-        """ Kết thúc quá trình thanh toán """
         QMessageBox.information(self, "Hoàn tất", "Thanh toán đã hoàn thành. Cảm ơn bạn!")
-        self.accept()  # Đóng hộp thoại
+        self.accept()
 
     def show_momo_qr(self):
-        """ Tạo và hiển thị mã QR thanh toán MoMo """
         pixmap = QPixmap("qr/momo_qr.JPG")
         self.qr_label.setPixmap(pixmap.scaled(200, 200, Qt.AspectRatioMode.KeepAspectRatio))
