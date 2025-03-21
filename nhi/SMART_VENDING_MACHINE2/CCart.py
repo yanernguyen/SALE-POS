@@ -36,18 +36,11 @@ class Cart:
 
         return False
 
-    def update_item_quantity(self, product_id: str, quantity_change: int):
-        if product_id in self.cart:
-            self.cart[product_id]['qty'] += quantity_change
-            if self.cart[product_id]['qty'] <= 0:
-                self.remove_product(product_id)
-
     def remove_product(self, product_id: str) -> bool:
         if product_id in self.cart:
             product = self.product_list.get_product_by_id(product_id)
             if product:
                 product.stock += self.cart[product_id]['qty']
-                self.product_list.save_products()
 
             del self.cart[product_id]
             return True
