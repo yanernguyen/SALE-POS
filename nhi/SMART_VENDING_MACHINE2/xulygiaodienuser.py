@@ -234,6 +234,7 @@ class Ui(QtWidgets.QMainWindow):
             product = self.productlist.get_product_by_id(product_id)
             if product and product.name == product_name:
                 product_to_remove = product
+                self.product_list.save_products()
                 break
 
         if not product_to_remove:
