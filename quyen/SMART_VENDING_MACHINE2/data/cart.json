@@ -1,0 +1,183 @@
+[
+    {
+        "items": [
+            {
+                "product_id": "SP_0006",
+                "name": "Cafe",
+                "quantity": 1,
+                "price": 20000,
+                "image": "image/cafe.jpg"
+            }
+        ],
+        "total": 20000.0
+    },
+    {
+        "items": [
+            {
+                "product_id": "SP_0003",
+                "name": "Aquafina",
+                "quantity": 1,
+                "price": 8000,
+                "image": "image/aquafina.jpg"
+            },
+            {
+                "product_id": "SP_0006",
+                "name": "Cafe",
+                "quantity": 1,
+                "price": 20000,
+                "image": "image/cafe.jpg"
+            },
+            {
+                "product_id": "SP_0005",
+                "name": "Sprite",
+                "quantity": 1,
+                "price": 11000,
+                "image": "image/sprite.jpg"
+            }
+        ],
+        "total": 39000.0
+    },
+    {
+        "items": [
+            {
+                "product_id": "SP_0003",
+                "name": "Aquafina",
+                "quantity": 1,
+                "price": 8000,
+                "image": "image/aquafina.jpg"
+            }
+        ],
+        "total": 8000.0
+    },
+    {
+        "items": [
+            {
+                "product_id": "SP_0006",
+                "name": "Cafe",
+                "quantity": 1,
+                "price": 20000,
+                "image": "image/cafe.jpg"
+            }
+        ],
+        "total": 20000.0
+    },
+    {
+        "items": [
+            {
+                "product_id": "SP_0001",
+                "name": "CocaCola",
+                "quantity": 1,
+                "price": 10000,
+                "image": "image/cocacola.jpg"
+            },
+            {
+                "product_id": "SP_0011",
+                "name": "Chocolate",
+                "quantity": 1,
+                "price": 20000,
+                "image": "image/chocolate.jpg"
+            },
+            {
+                "product_id": "SP_0013",
+                "name": "Toothpaste",
+                "quantity": 1,
+                "price": 20000,
+                "image": "image/toothpaste.jpg"
+            },
+            {
+                "product_id": "SP_0008",
+                "name": "Fried Chicken",
+                "quantity": 1,
+                "price": 30000,
+                "image": "image/friedchicken.jpg"
+            }
+        ],
+        "total": 80000.0,
+        "tax": 8000.0,
+        "total_after_tax": 88000.0
+    },
+    {
+        "items": [
+            {
+                "product_id": "SP_0003",
+                "name": "Aquafina",
+                "quantity": 1,
+                "price": 8000,
+                "image": "image/aquafina.jpg"
+            },
+            {
+                "product_id": "SP_0002",
+                "name": "Pepsi",
+                "quantity": 2,
+                "price": 12000,
+                "image": "image/pepsi.jpg"
+            }
+        ],
+        "total": 32000.0,
+        "tax": 3200.0,
+        "total_after_tax": 35200.0
+    },
+    {
+        "items": [
+            {
+                "product_id": "SP_0002",
+                "name": "Pepsi",
+                "quantity": 1,
+                "price": 12000,
+                "image": "image/pepsi.jpg"
+            },
+            {
+                "product_id": "SP_0003",
+                "name": "Aquafina",
+                "quantity": 1,
+                "price": 8000,
+                "image": "image/aquafina.jpg"
+            }
+        ],
+        "total": 20000.0,
+        "tax": 2000.0,
+        "total_after_tax": 22000.0
+    },
+    {
+        "items": [
+            {
+                "product_id": "SP_0002",
+                "name": "Pepsi",
+                "quantity": 1,
+                "price": 12000,
+                "image": "image/pepsi.jpg"
+            },
+            {
+                "product_id": "SP_0003",
+                "name": "Aquafina",
+                "quantity": 1,
+                "price": 8000,
+                "image": "image/aquafina.jpg"
+            }
+        ],
+        "total": 20000.0,
+        "tax": 2000.0,
+        "total_after_tax": 22000.0
+    },
+    {
+        "items": [
+            {
+                "product_id": "SP_0004",
+                "name": "Red Bull",
+                "quantity": 1,
+                "price": 15000,
+                "image": "image/redbull.jpg"
+            },
+            {
+                "product_id": "SP_0016",
+                "name": "Nestea",
+                "quantity": 3,
+                "price": 15000,
+                "image": "image/nestea.jpg"
+            }
+        ],
+        "total": 60000.0,
+        "tax": 6000.0,
+        "total_after_tax": 66000.0
+    }
+]
