@@ -334,7 +334,7 @@ QHeaderView::section {
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QPushButton" name="pushButton_ADD_2">
+       <widget class="QPushButton" name="pushButton_cancel">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -580,7 +580,7 @@ QPushButton:pressed {
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>648</width>
+       <width>638</width>
        <height>551</height>
       </rect>
      </property>
@@ -762,7 +762,7 @@ QPushButton:hover {
      <x>0</x>
      <y>0</y>
      <width>1130</width>
-     <height>18</height>
+     <height>27</height>
     </rect>
    </property>
   </widget>

@@ -179,5 +179,54 @@
         "total": 60000.0,
         "tax": 6000.0,
         "total_after_tax": 66000.0
+    },
+    {
+        "items": [
+            {
+                "product_id": "SP_0015",
+                "name": "Fanta",
+                "quantity": 1,
+                "price": 10000,
+                "image": "image/fanta.jpg"
+            },
+            {
+                "product_id": "SP_00029",
+                "name": "Donut",
+                "quantity": 1,
+                "price": 12000,
+                "image": "image/donut.jpg"
+            },
+            {
+                "product_id": "SP_00030",
+                "name": "Muffin",
+                "quantity": 1,
+                "price": 12000,
+                "image": "image/muffin.jpg"
+            }
+        ],
+        "total": 34000.0,
+        "tax": 3400.0,
+        "total_after_tax": 37400.0
+    },
+    {
+        "items": [
+            {
+                "product_id": "SP_0016",
+                "name": "Nestea",
+                "quantity": 1,
+                "price": 15000,
+                "image": "image/nestea.jpg"
+            },
+            {
+                "product_id": "SP_0007",
+                "name": "Burger",
+                "quantity": 1,
+                "price": 25000,
+                "image": "image/burger.jpg"
+            }
+        ],
+        "total": 40000.0,
+        "tax": 4000.0,
+        "total_after_tax": 44000.0
     }
 ]

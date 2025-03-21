@@ -11,12 +11,10 @@ from CCart import Cart
 from InvoiceDialog import InvoiceDialog
 
 
-
 class Ui(QtWidgets.QMainWindow):
     def __init__(self):
         super(Ui, self).__init__()
         uic.loadUi('giaodien2.ui', self)
-
         self.productlist = ProductList()
         self.cart = Cart()
 
@@ -49,7 +47,7 @@ class Ui(QtWidgets.QMainWindow):
         self.pushButton_REMOVE.clicked.connect(self.remove_from_cart)
         self.pushButton_CHECKOUT.clicked.connect(self.checkout)
         self.pushButton_icon.clicked.connect(self.open_login_window)
-        self.pushButton_ADD_2.clicked.connect(self.cancle)
+        self.pushButton_cancel.clicked.connect(self.cancel)
         self.pushButton_icon.clicked.connect(self.open_login_window)
 
 
@@ -57,6 +55,7 @@ class Ui(QtWidgets.QMainWindow):
         self.pushButton_FastFood.clicked.connect(lambda: self.filter_product("Fast Food"))
         self.pushButton_Snacks.clicked.connect(lambda: self.filter_product("Snacks"))
         self.pushButton_PersonalCares.clicked.connect(lambda: self.filter_product("Personal Cares"))
+
 
     def open_login_window(self):
         from xulygiaodienlogin import LoginWindow
@@ -81,6 +80,10 @@ class Ui(QtWidgets.QMainWindow):
         product_frame = QFrame()
         product_frame.setLayout(QVBoxLayout())
         product_frame.setFixedSize(200, 241)
+
+        updated_product = self.productlist.get_product_by_id(product.product_id)
+        if updated_product:
+            product.stock = updated_product.stock
 
         label_image = QLabel()
         pixmap = QPixmap(product.image)
@@ -268,10 +271,18 @@ class Ui(QtWidgets.QMainWindow):
 
             self.update_cart_table()
 
-    def cancle(self):
+    def cancel(self):
+        # Lưu lại số lượng sản phẩm trong giỏ hàng
+        for item in self.cart.to_dict():
+            product_id = item['product_id']
+            quantity = item['quantity']
+            product = self.productlist.get_product_by_id(product_id)
+            if product:
+                product.stock += quantity
+
         self.cart.clear()
         self.update_cart_table()
-
+        self.filter_product(self.current_category)
 
     def filter_product(self, category="Beverages"):
 
@@ -297,6 +308,7 @@ class Ui(QtWidgets.QMainWindow):
 
         self.scroll_widget.adjustSize()
         self.scroll_area.verticalScrollBar().setValue
+
 
 app = QtWidgets.QApplication(sys.argv)
 window = Ui()
